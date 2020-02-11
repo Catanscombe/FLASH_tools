@@ -1,6 +1,6 @@
 from __future__ import division
 import csv
-
+from collections import Counter
 in_file = 'Cas9-Rv.depth'
 genes = 'target_genes_info_clean.txt'
 def main():
@@ -30,8 +30,9 @@ def depth (in_file):
 
 def list_lookup (depth_list, genes):
 	gene_dic = {}
+	#print ' gene, start , stop'
 	for line in open (genes):
-		print line
+		#print line
 		line = line.strip().split(' ')
 		gene = line[0]
 		#print gene
@@ -47,18 +48,23 @@ def list_lookup (depth_list, genes):
 
 def gene_depth (gene_dic, depth_list):
 	gene_depth_list = list()
+	print 'gene , average , minimum , maximum , modal(value, occurances) '
 	for gene in gene_dic:
 		depth_points = depth_list[ gene_dic[gene][0]:gene_dic[gene][1]]
 		gene_depth_list.extend(depth_points)
-		print gene
+		#print gene
 		#print gene_dic[gene]
 		#print depth_points
-		print sum(depth_points) / len(depth_points)
-		print min(depth_points)
-		print max(depth_points)
+		average = sum(depth_points) / len(depth_points)
+		minimum = min(depth_points)
+		maximum = max(depth_points)
+		c = Counter(depth_points)
+		common = c.most_common(1)
+		modal = common[0]
+		
 		#print depth_points
-	print len(gene_depth_list)
-
+	#print len(gene_depth_list)
+		print gene , average , minimum , maximum , modal 
 	#print gene_depth_list
 	return gene_depth_list
 def all_but (depth_list , gene_depth_list):
@@ -72,7 +78,7 @@ def all_but (depth_list , gene_depth_list):
 	all_but_len = all_len - gene_len
 
 	all_but_av = all_but_sum/all_but_len
-	print all_but_av
+	print 'all_but_av', all_but_av
 
 
 
