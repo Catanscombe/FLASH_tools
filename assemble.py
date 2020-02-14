@@ -10,11 +10,11 @@ def main():
 	parser.add_argument ('sample_ID' , help = 'how you want out files to be named')
 
 	args = parser.parse_args()
+	assembly(args)
 
 
-
-def assembly(args)
+def assembly(args):
 	os.system ('bwa mem %s %s %s > %s.sam ')
 
 
-os.system
+os.system	
