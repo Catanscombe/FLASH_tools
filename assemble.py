@@ -15,15 +15,15 @@ def main():
 
 
 def assembly_whole_genome(args):
-	#os.system ('bwa mem %s/%s %s %s > %s.sam '% (script_dir , reference , args.in_file_R1 , args.in_file_R2, args.sample_ID))
+#	os.system ('bwa mem %s/%s %s %s > %s.sam '% (script_dir , reference , args.in_file_R1 , args.in_file_R2, args.sample_ID))
 	os.system ('samtools view -h -b -S %s.sam > %s.bam' % (args.sample_ID , args.sample_ID))
-	os.system ('samtools sort %s.bam > %s_S.bam' % (args.sample_ID, args.sample_ID))
+#	os.system ('samtools sort %s.bam > %s_S.bam' % (args.sample_ID, args.sample_ID))
 	# coverage at > Q30
 	os.system ('samtools depth -Q 30 %s_S.bam | wc -l > %s_Q30.depth.txt' % (args.sample_ID , args.sample_ID))
 	# number of mapped reads
-	os.system ('samtools view -F 0x904 -c %s_S.bam > %s_mapped_reads.txt')
+	os.system ('samtools view -F 0x904 -c %s_S.bam > %s_mapped_reads.txt'% (args.sample_ID , args.sample_ID))
 	# total number of reads
-	os.system ('samtools view -c %s_S.bam > %s_all_reads.txt')
+	os.system ('samtools view -c %s_S.bam > %s_all_reads.txt'% (args.sample_ID , args.sample_ID))
 
 
 
