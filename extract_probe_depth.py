@@ -3,8 +3,9 @@ from Bio.Seq import Seq
 from Bio import SeqIO
 targets = 'probe_target'
 reference = '../Mycobacterium_tuberculosis_H37Rv.fasta'
-depth_file = '../OUCRU.depth'
-all_but_av = 221
+depth_file = 'Cas9-Rv.depth'
+all_but_av = 105
+
 
 
 # with open (reference ) as genome: 
@@ -15,9 +16,9 @@ genome = str(genome.seq)
 def main():
 	probe_pos = find_probe_pos(targets, reference)
 	fold_list = genome_fold(probe_pos, depth_file, all_but_av)
-#	fold_per_gene (fold_list, probe_pos)
-	#get_probe_fold (fold_list , probe_pos)
-	get_min_between_probes(fold_list, probe_pos)
+	fold_per_gene (fold_list, probe_pos)
+	get_probe_fold (fold_list , probe_pos)
+#	get_min_between_probes(fold_list, probe_pos)
 
 
 # genome = genome.read()
@@ -68,7 +69,7 @@ def find_probe_pos(targets, reference):
 	return probe_pos
 
 def genome_fold (probe_pos, depth_file, all_but_av):
-# create a list of the relative fold depth across the whole genome
+# create a list of the relative fold depth acrosless the whole genome
 	with open(depth_file, 'rb') as f:
 		fold_list = list()
 		for line in f:

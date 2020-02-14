@@ -2,11 +2,11 @@ from __future__ import division
 import csv
 import re
 
-target_file = 'panel.final.mykrobe.txt'
-in_file = 'Undetermined_S0_L001.depth'
+target_file = '../../git_scripts/panel.final.mykrobe.txt'
+in_file = 'Cas9-Rv.depth'
 genes = 'target_genes_info_clean.txt'
-all_genes = 'all_genes'
-all_but_av = 191
+all_genes = '../../git_scripts/all_genes'
+all_but_av = 105
 
 def main():
 	mykrobe_gene = get_DNA(target_file)	
