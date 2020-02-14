@@ -1,9 +1,9 @@
 import os
 import argparse
-
+script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
+reference = 'references/NC_000962.3.fasta'
 def main():
-	script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
-	reference = 'references/NC_000962.3.fasta'
+	
 	parser = argparse.ArgumentParser()
 	parser.add_argument ('in_file_R1',  help = 'forward read')
 	parser.add_argument ('in_file_R2',  help = 'reverse read')
@@ -14,7 +14,7 @@ def main():
 
 
 def assembly(args):
-	os.system ('bwa mem %s %s %s > %s.sam ')
+	os.system ('bwa mem %s/%s %s %s > %s.sam '% (script_dir , reference , in_file_R1 , in_file_R2))
 
 
-os.system	
+main()
