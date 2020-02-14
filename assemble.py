@@ -15,7 +15,7 @@ def main():
 
 
 def assembly(args):
-	os.system ('bwa mem %s/%s %s %s > %s.sam '% (script_dir , reference , in_file_R1 , in_file_R2))
+	os.system ('bwa mem %s/%s %s %s > %s.sam '% (script_dir , reference , args.in_file_R1 , args.in_file_R2, args.sample_ID))
 
 
 main()
