@@ -5,6 +5,8 @@ import sys
 script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
 reference = 'references/NC_000962.3.fasta'
 targets = 'references/TB_FLASH_v2_genes.fasta'
+genome_size = 4411532
+target_size = 103895
 def main():
 	
 	parser = argparse.ArgumentParser()
@@ -18,26 +20,30 @@ def main():
 
 
 def assembly_whole_genome(args):
-	#os.system ('bwa mem %s/%s %s %s > %s.sam '% (script_dir , reference , args.in_file_R1 , args.in_file_R2, args.sample_ID))
-	#os.system ('samtools view -h -b -S %s.sam > %s.bam' % (args.sample_ID , args.sample_ID))
-	#os.system ('samtools sort %s.bam > %s_S.bam' % (args.sample_ID, args.sample_ID))
+	os.system ('bwa mem %s/%s %s %s > %s.sam '% (script_dir , reference , args.in_file_R1 , args.in_file_R2, args.sample_ID))
+	os.system ('samtools view -h -b -S %s.sam > %s.bam' % (args.sample_ID , args.sample_ID))
+	os.system ('samtools sort %s.bam > %s_S.bam' % (args.sample_ID, args.sample_ID))
 	# coverage at > Q30
 	coverage_Q30 = subprocess.check_output('samtools depth -Q 30 %s_S.bam | wc -l '  % (args.sample_ID ) , shell = True)
 	# number of mapped reads
-	#os.system ('samtools view -F 0x904 -c %s_S.bam > %s_mapped_reads.txt'% (args.sample_ID , args.sample_ID))
-	# total number of reads
-	#os.system ('samtools view -c %s_S.bam > %s_all_reads.txt'% (args.sample_ID , args.sample_ID))
-	print 'coverage Q30 ='
-	print  coverage_Q30
-def assembly_targets(args):
+	WG_mapped_reads = subprocess.check_output ('samtools view -F 0x904 -c %s_S.bam'% (args.sample_ID , args.sample_ID), shell = True)
+	#total number of reads
+	total_reads = subprocess.check_output ('samtools view -c %s_S.bam > %s_all_reads.txt'% (args.sample_ID , args.sample_ID), shell = True)
+
+
 	os.system ('bwa mem %s/%s %s %s > %s_targets.sam '% (script_dir , targets , args.in_file_R1 , args.in_file_R2, args.sample_ID))
 	os.system ('samtools view -h -b -S %s_targets.sam > %s_targets.bam' % (args.sample_ID , args.sample_ID))
 	os.system ('samtools sort %s_targets.bam > %s_targets_S.bam' % (args.sample_ID, args.sample_ID))
 	# coverage at > Q30
-	os.system ('samtools depth -Q 30 %s_targets_S.bam | wc -l > %s_targets_Q30.depth.txt' % (args.sample_ID , args.sample_ID))
+	target_Q30_coverage =subprocess.check_output('samtools depth -Q 30 %s_targets_S.bam | wc -l > %s_targets_Q30.depth.txt' % (args.sample_ID , args.sample_ID)shell = True)
 	# number of mapped reads
-	os.system ('samtools view -F 0x904 -c %s_targets_S.bam > %s_targets_mapped_reads.txt'% (args.sample_ID , args.sample_ID))
-	
+	target_mapped_reads = subprocess.check_output ('samtools view -F 0x904 -c %s_targets_S.bam > %s_targets_mapped_reads.txt'% (args.sample_ID , args.sample_ID)shell = True)
+	pec_genome_cov = coverage_Q30/genome_size
+	target_pec_genome_cov = target_Q30_coverage/target_size
+	pec_mapped_reads = total_reads/WG_mapped_reads
+	pec_target_mapped_reads = target_mapped_reads/total_reads
+	print 'sample_ID , total_reads , WG_mapped_reads , pec_mapped_reads , genome_size , coverage_Q30 , pec_genome_cov , target_mapped_reads , pec_target_mapped_reads , target_size , target_Q30_coverage , target_pec_genome_cov'
+	print args.sample_ID , total_reads , WG_mapped_reads , pec_mapped_reads , genome_size , coverage_Q30 , pec_genome_cov , target_mapped_reads , pec_target_mapped_reads , target_size , target_Q30_coverage , target_pec_genome_cov
 #def get_stats(args):
 
 
