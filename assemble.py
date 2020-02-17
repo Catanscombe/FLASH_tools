@@ -5,7 +5,7 @@ import sys
 script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
 reference = 'references/NC_000962.3.fasta'
 targets = 'references/TB_FLASH_v2_genes.fasta'
-genome_size = 4411532
+genome_size = 4474555
 target_size = 103895
 def main():
 	
@@ -30,7 +30,7 @@ def assembly_whole_genome(args):
 	#total number of reads
 	total_reads = subprocess.check_output ('samtools view -c %s_S.bam '% (args.sample_ID ), shell = True)
 
-
+	
 	#os.system ('bwa mem %s/%s %s %s > %s_targets.sam '% (script_dir , targets , args.in_file_R1 , args.in_file_R2, args.sample_ID))
 	#os.system ('samtools view -h -b -S %s_targets.sam > %s_targets.bam' % (args.sample_ID , args.sample_ID))
 	#os.system ('samtools sort %s_targets.bam > %s_targets_S.bam' % (args.sample_ID, args.sample_ID))
