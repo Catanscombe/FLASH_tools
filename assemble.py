@@ -4,6 +4,7 @@ import argparse
 import sys
 from Bio import SeqIO
 import csv
+import fileinput
 
 script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
 reference = 'references/NC_000962.3.fasta'
