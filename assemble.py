@@ -72,7 +72,7 @@ def  get_target_tats(args):
 		    coverage_target = subprocess.check_output ('grep "%s" %s_targets.depth |wc -l ' % (name, args.sample_ID), shell = True)
 		    pec_target_coverage = float(coverage_target)/seqLen
 		    writer =csv.writer (f, delimiter = ',')
-		    writer.writerow ( name, seqLen , coverage_target , pec_target_coverage)
+		    writer.writerow ( [name, seqLen , coverage_target , pec_target_coverage])
 
 		FastaFile.close()
 
