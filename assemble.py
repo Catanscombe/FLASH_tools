@@ -53,7 +53,7 @@ def assembly_whole_genome(args):
 
 
 def  get_target_tats(args):
-	fasta = open('%s/%s' % (script_dir , targets) , 'rU')
+	FastaFile = open('%s/%s' % (script_dir , targets) , 'rU')
 
 	for rec in SeqIO.parse(FastaFile, 'fasta'):
 	    name = rec.id
@@ -61,7 +61,7 @@ def  get_target_tats(args):
 	    seqLen = len(rec)
 	    print name, seqLen
 
-	fasta.close()
+	FastaFile.close()
 
 
 main()
