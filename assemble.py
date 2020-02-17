@@ -36,7 +36,7 @@ def assembly_targets(args):
 	# number of mapped reads
 	os.system ('samtools view -F 0x904 -c %s_targets_S.bam > %s_targets_mapped_reads.txt'% (args.sample_ID , args.sample_ID))
 	
-def get_stats(args):
+#def get_stats(args):
 
 
 main()
