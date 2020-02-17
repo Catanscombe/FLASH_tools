@@ -52,7 +52,10 @@ def assembly_whole_genome(args):
 		target_pec_genome_cov = float(target_Q30_coverage)/target_size
 		pec_mapped_reads = float(WG_mapped_reads)/int(total_reads)
 		pec_target_mapped_reads = float(target_mapped_reads)/int(total_reads)
-		print args.sample_ID,total_reads,WG_mapped_reads,pec_mapped_reads,genome_size,coverage_Q30,pec_genome_cov,target_mapped_reads,pec_target_mapped_reads,target_size,target_Q30_coverage,target_pec_genome_cov
+		to_print = [total_reads, WG_mapped_reads, pec_mapped_reads,genome_size,coverage_Q30,pec_genome_cov,target_mapped_reads,pec_target_mapped_reads,target_size,target_Q30_coverage,target_pec_genome_cov]
+		to_print = [x.strip() for x in to_print]
+		print(','.join(map(str, to_print)))
+		# print args.sample_ID,total_reads,WG_mapped_reads,pec_mapped_reads,genome_size,coverage_Q30,pec_genome_cov,target_mapped_reads,pec_target_mapped_reads,target_size,target_Q30_coverage,target_pec_genome_cov
 #		writer =csv.writer(rf , delimiter = ',')
 #		writer.writerow ([args.sample_ID,total_reads,WG_mapped_reads,pec_mapped_reads,genome_size,coverage_Q30,pec_genome_cov,target_mapped_reads,pec_target_mapped_reads,target_size,target_Q30_coverage,target_pec_genome_cov])
 #	for line in fileinput.input(files = ['%s_Assembly_statsw.csv' % (args.sample_ID)] , inplace = True):
