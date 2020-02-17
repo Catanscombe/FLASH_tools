@@ -1,4 +1,5 @@
 import os
+import subprocess
 import argparse
 import sys
 script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
@@ -21,12 +22,12 @@ def assembly_whole_genome(args):
 	#os.system ('samtools view -h -b -S %s.sam > %s.bam' % (args.sample_ID , args.sample_ID))
 	#os.system ('samtools sort %s.bam > %s_S.bam' % (args.sample_ID, args.sample_ID))
 	# coverage at > Q30
-	coverage_Q30 = os.system ('samtools depth -Q 30 %s_S.bam | wc -l ' % (args.sample_ID ))
+	coverage_Q30 = subprocess.check_output('samtools depth -Q 30 %s_S.bam | wc -l ' , shell = True % (args.sample_ID ))
 	# number of mapped reads
 	#os.system ('samtools view -F 0x904 -c %s_S.bam > %s_mapped_reads.txt'% (args.sample_ID , args.sample_ID))
 	# total number of reads
 	#os.system ('samtools view -c %s_S.bam > %s_all_reads.txt'% (args.sample_ID , args.sample_ID))
-	#print coverage_Q30
+	print coverage_Q30
 def assembly_targets(args):
 	os.system ('bwa mem %s/%s %s %s > %s_targets.sam '% (script_dir , targets , args.in_file_R1 , args.in_file_R2, args.sample_ID))
 	os.system ('samtools view -h -b -S %s_targets.sam > %s_targets.bam' % (args.sample_ID , args.sample_ID))
