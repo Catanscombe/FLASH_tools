@@ -2,6 +2,8 @@ import os
 import subprocess
 import argparse
 import sys
+from Bio import SeqIO
+
 script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
 reference = 'references/NC_000962.3.fasta'
 targets = 'references/TB_FLASH_v2_genes.fasta'
@@ -15,8 +17,8 @@ def main():
 	parser.add_argument ('sample_ID' , help = 'how you want out files to be named')
 
 	args = parser.parse_args()
-	assembly_whole_genome(args)
-	
+	#assembly_whole_genome(args)
+	get_target_tats(args)
 
 
 def assembly_whole_genome(args):
@@ -48,8 +50,18 @@ def assembly_whole_genome(args):
 	pec_target_mapped_reads = float(target_mapped_reads)/int(total_reads)
 	print 'sample_ID , total_reads , WG_mapped_reads , pec_mapped_reads , genome_size , coverage_Q30 , pec_genome_cov , target_mapped_reads , pec_target_mapped_reads , target_size , target_Q30_coverage , target_pec_genome_cov'
 	print args.sample_ID,total_reads,WG_mapped_reads,pec_mapped_reads,genome_size,coverage_Q30,pec_genome_cov,target_mapped_reads,pec_target_mapped_reads,target_size,target_Q30_coverage,target_pec_genome_cov
-#def get_stats(args):
 
+
+def  get_target_tats(args):
+	fasta = open('%s/%s' % (script_dir , targets) , 'rU')
+
+	for rec in SeqIO.parse(FastaFile, 'fasta'):
+	    name = rec.id
+	    seq = rec.seq
+	    seqLen = len(rec)
+	    print name, seqLen
+
+	FastaFile.close()
 
 
 main()
