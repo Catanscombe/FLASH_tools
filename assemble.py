@@ -26,7 +26,7 @@ def assembly_whole_genome(args):
 	#os.system ('samtools view -F 0x904 -c %s_S.bam > %s_mapped_reads.txt'% (args.sample_ID , args.sample_ID))
 	# total number of reads
 	#os.system ('samtools view -c %s_S.bam > %s_all_reads.txt'% (args.sample_ID , args.sample_ID))
-	print coverage_Q30
+	#print coverage_Q30
 def assembly_targets(args):
 	os.system ('bwa mem %s/%s %s %s > %s_targets.sam '% (script_dir , targets , args.in_file_R1 , args.in_file_R2, args.sample_ID))
 	os.system ('samtools view -h -b -S %s_targets.sam > %s_targets.bam' % (args.sample_ID , args.sample_ID))
