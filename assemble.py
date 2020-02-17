@@ -57,8 +57,8 @@ def  get_target_tats(args):
 
 	for rec in SeqIO.parse(FastaFile, 'fasta'):
 	    name = rec.id
-	    name = name.split('|')
-	    name = name[0]
+	    #name = name.split('|')
+	    #name = name[0]
 	    seq = rec.seq
 	    seqLen = len(rec)
 	    print name, seqLen
