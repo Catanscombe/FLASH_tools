@@ -21,7 +21,7 @@ def assembly_whole_genome(args):
 	#os.system ('samtools view -h -b -S %s.sam > %s.bam' % (args.sample_ID , args.sample_ID))
 	#os.system ('samtools sort %s.bam > %s_S.bam' % (args.sample_ID, args.sample_ID))
 	# coverage at > Q30
-	coverage_Q30 = os.system ('samtools depth -Q 30 %s_S.bam | wc -l > %s_Q30.depth.txt' % (args.sample_ID , args.sample_ID))
+	coverage_Q30 = os.system ('samtools depth -Q 30 %s_S.bam | wc -l ' % (args.sample_ID ))
 	# number of mapped reads
 	#os.system ('samtools view -F 0x904 -c %s_S.bam > %s_mapped_reads.txt'% (args.sample_ID , args.sample_ID))
 	# total number of reads
