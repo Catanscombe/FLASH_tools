@@ -61,7 +61,7 @@ def  get_target_tats(args):
 	    seqLen = len(rec)
 	    print name, seqLen
 
-	FastaFile.close()
+	fasta.close()
 
 
 main()
