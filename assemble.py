@@ -16,13 +16,13 @@ def main():
 
 	args = parser.parse_args()
 	assembly_whole_genome(args)
-	#assembly_targets(args)
+	
 
 
 def assembly_whole_genome(args):
-	#os.system ('bwa mem %s/%s %s %s > %s.sam '% (script_dir , reference , args.in_file_R1 , args.in_file_R2, args.sample_ID))
-	#os.system ('samtools view -h -b -S %s.sam > %s.bam' % (args.sample_ID , args.sample_ID))
-	#os.system ('samtools sort %s.bam > %s_S.bam' % (args.sample_ID, args.sample_ID))
+	os.system ('bwa mem %s/%s %s %s > %s.sam '% (script_dir , reference , args.in_file_R1 , args.in_file_R2, args.sample_ID))
+	os.system ('samtools view -h -b -S %s.sam > %s.bam' % (args.sample_ID , args.sample_ID))
+	os.system ('samtools sort %s.bam > %s_S.bam' % (args.sample_ID, args.sample_ID))
 	# coverage at > Q30
 	coverage_Q30 = subprocess.check_output('samtools depth -Q 30 %s_S.bam | wc -l '  % (args.sample_ID ) , shell = True)
 	# number of mapped reads
@@ -31,13 +31,16 @@ def assembly_whole_genome(args):
 	total_reads = subprocess.check_output ('samtools view -c %s_S.bam '% (args.sample_ID ), shell = True)
 
 
-	#os.system ('bwa mem %s/%s %s %s > %s_targets.sam '% (script_dir , targets , args.in_file_R1 , args.in_file_R2, args.sample_ID))
-	#os.system ('samtools view -h -b -S %s_targets.sam > %s_targets.bam' % (args.sample_ID , args.sample_ID))
-	#os.system ('samtools sort %s_targets.bam > %s_targets_S.bam' % (args.sample_ID, args.sample_ID))
+	os.system ('bwa mem %s/%s %s %s > %s_targets.sam '% (script_dir , targets , args.in_file_R1 , args.in_file_R2, args.sample_ID))
+	os.system ('samtools view -h -b -S %s_targets.sam > %s_targets.bam' % (args.sample_ID , args.sample_ID))
+	os.system ('samtools sort %s_targets.bam > %s_targets_S.bam' % (args.sample_ID, args.sample_ID))
 	# coverage at > Q30
 	target_Q30_coverage =subprocess.check_output('samtools depth -Q 30 %s_targets_S.bam | wc -l ' % (args.sample_ID ) ,shell = True)
 	# number of mapped reads
 	target_mapped_reads = subprocess.check_output ('samtools view -F 0x904 -c %s_targets_S.bam '% (args.sample_ID ), shell = True)
+	
+
+
 	pec_genome_cov = float(coverage_Q30)/genome_size
 	target_pec_genome_cov = float(target_Q30_coverage)/target_size
 	pec_mapped_reads = float(WG_mapped_reads)/int(total_reads)
