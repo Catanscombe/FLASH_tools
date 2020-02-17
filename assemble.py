@@ -38,10 +38,10 @@ def assembly_whole_genome(args):
 	target_Q30_coverage =subprocess.check_output('samtools depth -Q 30 %s_targets_S.bam | wc -l ' % (args.sample_ID ) ,shell = True)
 	# number of mapped reads
 	target_mapped_reads = subprocess.check_output ('samtools view -F 0x904 -c %s_targets_S.bam '% (args.sample_ID ), shell = True)
-	pec_genome_cov = coverage_Q30/genome_size
-	target_pec_genome_cov = target_Q30_coverage/target_size
-	pec_mapped_reads = total_reads/WG_mapped_reads
-	pec_target_mapped_reads = target_mapped_reads/total_reads
+	pec_genome_cov = int(coverage_Q30)/genome_size
+	target_pec_genome_cov = int(target_Q30_coverage)/target_size
+	pec_mapped_reads = int(total_reads)/WG_mapped_reads
+	pec_target_mapped_reads = int(target_mapped_reads)/total_reads
 	print 'sample_ID , total_reads , WG_mapped_reads , pec_mapped_reads , genome_size , coverage_Q30 , pec_genome_cov , target_mapped_reads , pec_target_mapped_reads , target_size , target_Q30_coverage , target_pec_genome_cov'
 	print args.sample_ID , total_reads , WG_mapped_reads , pec_mapped_reads , genome_size , coverage_Q30 , pec_genome_cov , target_mapped_reads , pec_target_mapped_reads , target_size , target_Q30_coverage , target_pec_genome_cov
 #def get_stats(args):
