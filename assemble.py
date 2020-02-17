@@ -53,6 +53,8 @@ def assembly_whole_genome(args):
 
 
 def  get_target_tats(args):
+	os.system ('samtools depth -Q 30 %s_targets_S.bam > %s_targets.depth'% (args.sample_ID , args.sample_ID))
+
 	FastaFile = open('%s/%s' % (script_dir , targets) , 'rU')
 
 	for rec in SeqIO.parse(FastaFile, 'fasta'):
@@ -61,7 +63,8 @@ def  get_target_tats(args):
 	    #name = name[0]
 	    seq = rec.seq
 	    seqLen = len(rec)
-	    print name, seqLen
+	    coverage_target = subprocess.check_output ('grep %s %s_targets.depth |wc -l ' % (name, args.sample_ID))
+	    print name, seqLen , coverage_target
 
 	FastaFile.close()
 
