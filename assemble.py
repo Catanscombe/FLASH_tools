@@ -18,7 +18,7 @@ def main():
 	parser.add_argument ('sample_ID' , help = 'how you want out files to be named')
 
 	args = parser.parse_args()
-	#assembly_whole_genome(args)
+	assembly_whole_genome(args)
 	get_target_tats(args)
 
 
@@ -53,7 +53,7 @@ def assembly_whole_genome(args):
 		pec_mapped_reads = float(WG_mapped_reads)/int(total_reads)
 		pec_target_mapped_reads = float(target_mapped_reads)/int(total_reads)
 		writer =csv.writer(rf , delimiter = ',')
-		wrtier.writerow (args.sample_ID,total_reads,WG_mapped_reads,pec_mapped_reads,genome_size,coverage_Q30,pec_genome_cov,target_mapped_reads,pec_target_mapped_reads,target_size,target_Q30_coverage,target_pec_genome_cov)
+		wrtier.writerow ([args.sample_ID,total_reads,WG_mapped_reads,pec_mapped_reads,genome_size,coverage_Q30,pec_genome_cov,target_mapped_reads,pec_target_mapped_reads,target_size,target_Q30_coverage,target_pec_genome_cov])
 
 
 def  get_target_tats(args):
