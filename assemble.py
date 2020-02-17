@@ -65,7 +65,7 @@ def  get_target_tats(args):
 	    seqLen = len(rec)
 	    
 	    coverage_target = subprocess.check_output ('grep "%s" %s_targets.depth |wc -l ' % (name, args.sample_ID), shell = True)
-	    pec_target_coverage = float(coverage_target/seqLen)
+	    pec_target_coverage = float(coverage_target)/seqLen
 	    print name, seqLen , coverage_target , pec_target_coverage
 
 	FastaFile.close()
