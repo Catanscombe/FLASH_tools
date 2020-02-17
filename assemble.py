@@ -59,8 +59,8 @@ def  get_target_tats(args):
 
 	for rec in SeqIO.parse(FastaFile, 'fasta'):
 	    name = rec.id
-	    #name = name.split('|')
-	    #name = name[0]
+	    name = name.split('|')
+	    name = name[0]
 	    seq = rec.seq
 	    seqLen = len(rec)
 	    coverage_target = subprocess.check_output ('grep "%s" %s_targets.depth |wc -l ' % (name, args.sample_ID))
