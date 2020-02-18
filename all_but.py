@@ -24,7 +24,7 @@ def main():
 	find_probes(args)
 	coverage_depth(args)
 
-	
+
 def find_probes(args):
 
 #find the target position of the probes from the H37Rv genome, add to dictionary per gene
@@ -75,7 +75,7 @@ def find_probes(args):
 		return probe_pos
 
 def coverage_depth (args):
-	with open ('%s/%s' % ( script_dir, args.depth_file) , 'rb') as df:
+	with open ('%s' % (args.depth_file) , 'rb') as df:
 		depth_list = list()
 		for line in df:
 			line = line.strip().split('\t')
