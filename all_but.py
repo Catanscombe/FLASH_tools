@@ -1,10 +1,10 @@
 
-import os
-import argparse
+
 from __future__ import division
 from Bio.Seq import Seq
 from Bio import SeqIO
-
+import os
+import argparse
 script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
 targets = 'probe_target'
 reference = 'references/NC_000962.3.fasta'
