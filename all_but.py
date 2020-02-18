@@ -21,8 +21,10 @@ def main():
 	parser.add_argument('sample_ID' , help = 'file naming')
 	args = parser.parse_args()
 
-	find_probes(args)
-	coverage_depth(args)
+	probe_pos = find_probes(args)
+	depth_list = coverage_depth(args)
+	probe_pair_depth(args, probe_pos)
+
 
 
 def find_probes(args):
@@ -81,9 +83,11 @@ def coverage_depth (args):
 			line = line.strip().split('\t')
 			depth = int(line[2])
 			depth_list.append(depth)
-	print depth_list
 	return depth_list
 
+def probe_pair_depth(args, probe_pos):
+	for gene in probe_pos:
+		print gene
 
 
 
