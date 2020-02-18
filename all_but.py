@@ -16,7 +16,7 @@ def main():
 	parser = argparse.ArgumentParser()
 	parser.add_argument('depth_file' , help = 'depth file, sample.depth')
 	parser.add_argument('sample_ID' , help = 'file naming')
-	args = parser.parse_Args()
+	args = parser.parse_args()
 
 	find_probes(args)
 
