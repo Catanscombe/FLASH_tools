@@ -20,7 +20,7 @@ def main():
 
 	args = parser.parse_args()
 	assembly_whole_genome(args)
-	#get_target_tats(args)
+	get_target_tats(args)
 
 
 def assembly_whole_genome(args):
