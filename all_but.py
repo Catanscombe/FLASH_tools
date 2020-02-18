@@ -79,7 +79,7 @@ def coverage_depth (args):
 		depth_list = list()
 		for line in df:
 			line = line.strip().split('\t')
-			depth = line[2]
+			depth = int(line[2])
 			depth_list.append(depth)
 	print depth_list
 	return depth_list
