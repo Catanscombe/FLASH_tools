@@ -36,7 +36,7 @@ def find_probes(args):
 		#print target
 		found = genome.find(target)
 		if found!= -1:
-	#		print gene, ID , target, found , 'F'
+			print gene, ID , target, found , 'F'
 			if gene in probe_pos:
 				probe_pos[gene].append(found)
 			else:
@@ -52,20 +52,20 @@ def find_probes(args):
 			#print target_rc
 			found_rc = genome.find(target_rc)
 			if found_rc != -1:
-	#			print gene, ID, target, found_rc , 'RC'
+				print gene, ID, target, found_rc , 'RC'
 				if gene in probe_pos:
 					probe_pos[gene].append(found_rc)
 				else:
 					probe_pos[gene] =[]
 					probe_pos[gene].append(found_rc)
 			else: 
-	#			print gene, ID, target, 'not found'
+				print gene, ID, target, 'not found'
 				pass
 	
 
 	for gene in probe_pos:
 		probe_pos[gene] = list(set(probe_pos[gene]))
-	print probe_pos
+	#print probe_pos
 	return probe_pos
 
 main()
