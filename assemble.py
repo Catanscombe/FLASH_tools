@@ -53,8 +53,7 @@ def assembly_whole_genome(args):
 		pec_mapped_reads = float(WG_mapped_reads)/int(total_reads)
 		pec_target_mapped_reads = float(target_mapped_reads)/int(total_reads)
 
-		to_print = map(str, [total_reads, WG_mapped_reads, pec_mapped_reads,genome_size,coverage_Q30,pec_genome_cov,target_mapped_reads,pec_target_mapped_reads,target_size,target_Q30_coverage,target_pec_genome_cov])
-
+		
 		to_print = map(str,[total_reads, WG_mapped_reads, pec_mapped_reads,genome_size,coverage_Q30,pec_genome_cov,target_mapped_reads,pec_target_mapped_reads,target_size,target_Q30_coverage,target_pec_genome_cov])
 
 		to_print = [x.strip() for x in to_print]
@@ -82,8 +81,10 @@ def  get_target_tats(args):
 		    
 		    coverage_target = subprocess.check_output ('grep "%s" %s_targets.depth |wc -l ' % (name, args.sample_ID), shell = True)
 		    pec_target_coverage = float(coverage_target)/seqLen
+		    out_put = map(str, [name, seqLen , coverage_target , pec_target_coverage])
+		    out_put = [x.strip() for x in out_put]
 		    writer =csv.writer (f, delimiter = ',')
-		    writer.writerow ( [name, seqLen , coverage_target , pec_target_coverage])
+		    writer.writerow (out_put)
 
 		FastaFile.close()
 
