@@ -12,7 +12,7 @@ reference = 'references/NC_000962.3.fasta'
 
 
 
-def man():
+def main():
 	parser = argparse.ArgumentParser()
 	parser.add_argument('depth_file' , help = 'depth file, sample.depth')
 	parser.add_argument('sample_ID' , help = 'file naming')
