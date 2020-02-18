@@ -88,14 +88,16 @@ def coverage_depth (args):
 def probe_pair_depth(args, probe_pos, depth_list):
 	
 	for gene in probe_pos:
+
 		probe_depth_list = list()
 		probe_pos_list = probe_pos[gene]
+		print probe_list
 		sorted_pos = sorted(probe_pos_list)
 		for i in range (0, len(sorted_pos)-1):
 			probe_1 = sorted_pos[i]
 			probe_2 = sorted_pos[i +1]
 			our_list = depth_list[probe_1:probe_2]
-			
+			print gene 
 			#print our_list
 				
 
@@ -121,7 +123,7 @@ def probe_pair_depth(args, probe_pos, depth_list):
 	print wg_av
 	print all_but_av
 			
-
+###
 
 
 
