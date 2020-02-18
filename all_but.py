@@ -96,7 +96,7 @@ def probe_pair_depth(args, probe_pos, depth_list):
 			probe_1 = sorted_pos[i]
 			probe_2 = sorted_pos[i +1]
 			our_list = depth_list[probe_1:probe_2]
-			print gene , our_list
+			#print gene , our_list
 			#print our_list
 				
 
@@ -109,10 +109,11 @@ def probe_pair_depth(args, probe_pos, depth_list):
 					flat_list.append(val)
 
 			print len(flat_list)
+			#print flat_list
 
-	len_enriched = len(probe_depth_list)
+	len_enriched = len(flat_list)
 	print len_enriched
-	sum_enriched = sum(probe_depth_list)
+	sum_enriched = sum(flat_list)
 	print sum_enriched
 	average_enriched =  sum_enriched/len_enriched
 
