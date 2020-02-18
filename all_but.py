@@ -4,6 +4,7 @@ from Bio import SeqIO
 import os
 import argparse
 import sys
+import csv
 
 script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
 targets = 'probe_target'
@@ -62,7 +63,7 @@ def find_probes(args):
 						probe_pos[gene].append(found_rc)
 				else: 
 					writer.writerow ([ gene, ID, target, 'not found' ])
-					
+
 					pass
 		
 
