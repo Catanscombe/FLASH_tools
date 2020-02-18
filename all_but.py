@@ -25,47 +25,49 @@ def main():
 def find_probes(args):
 
 #find the target position of the probes from the H37Rv genome, add to dictionary per gene
-	probe_pos = {}
-	for line in open('%s/%s' % (script_dir , targets)):
-		
-		line = line.strip().split('\t')
-		ID = line[0]
-		gene = ID.strip().split("_")
-		gene = gene[0]
-		target = line[1]
-		#print target
-		found = genome.find(target)
-		if found!= -1:
-			print gene, ID , target, found , 'F'
-			if gene in probe_pos:
-				probe_pos[gene].append(found)
-			else:
-				probe_pos[gene] =[]
-				probe_pos[gene].append(found)
-
+	with open ('%s_probe_positions.csv' % (args.sample_ID), 'a' ) as f:
+		writer = csv.writer(f , delimiter = ',')
+		probe_pos = {}
+		for line in open('%s/%s' % (script_dir , targets)):
 			
-		else:
-			target = Seq(target)
-			target_rc  = target.reverse_complement()
-			target_rc = str(target_rc)
+			line = line.strip().split('\t')
+			ID = line[0]
+			gene = ID.strip().split("_")
+			gene = gene[0]
+			target = line[1]
 			#print target
-			#print target_rc
-			found_rc = genome.find(target_rc)
-			if found_rc != -1:
-				print gene, ID, target, found_rc , 'RC'
+			found = genome.find(target)
+			if found!= -1:
+				writer.writerow ([gene, ID , target, found , 'F'])
 				if gene in probe_pos:
-					probe_pos[gene].append(found_rc)
+					probe_pos[gene].append(found)
 				else:
 					probe_pos[gene] =[]
-					probe_pos[gene].append(found_rc)
-			else: 
-				print gene, ID, target, 'not found'
-				pass
-	
+					probe_pos[gene].append(found)
 
-	for gene in probe_pos:
-		probe_pos[gene] = list(set(probe_pos[gene]))
-	#print probe_pos
-	return probe_pos
+				
+			else:
+				target = Seq(target)
+				target_rc  = target.reverse_complement()
+				target_rc = str(target_rc)
+				#print target
+				#print target_rc
+				found_rc = genome.find(target_rc)
+				if found_rc != -1:
+					writer.writerow ([gene, ID , target, found , 'F']) gene, ID, target, found_rc , 'RC'
+					if gene in probe_pos:
+						probe_pos[gene].append(found_rc)
+					else:
+						probe_pos[gene] =[]
+						probe_pos[gene].append(found_rc)
+				else: 
+					writer.writerow ([gene, ID , target, found , 'F']) gene, ID, target, 'not found'
+					pass
+		
+
+		for gene in probe_pos:
+			probe_pos[gene] = list(set(probe_pos[gene]))
+		#print probe_pos
+		return probe_pos
 
 main()
