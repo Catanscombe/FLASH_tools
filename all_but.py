@@ -110,22 +110,22 @@ def probe_pair_depth(args, probe_pos, depth_list):
 
 			print len(flat_list)
 
-#	len_enriched = len(probe_depth_list)
-	#print len_enriched
-#	sum_enriched = sum(probe_depth_list)
-	#print sum_enriched
-#	average_enriched =  sum_enriched/len_enriched
+	len_enriched = len(probe_depth_list)
+	print len_enriched
+	sum_enriched = sum(probe_depth_list)
+	print sum_enriched
+	average_enriched =  sum_enriched/len_enriched
 
-	#print average_enriched
+	print average_enriched
 
-#	whole_length = len(depth_list)
-#	whole_depth = sum(depth_list)
-#	wg_av = whole_depth / whole_length
-#	all_but_length = whole_length - len_enriched
-#	all_but_depth = whole_depth - sum_enriched
-#	all_but_av = all_but_depth / all_but_length
-	#print wg_av
-	#print all_but_av
+	whole_length = len(depth_list)
+	whole_depth = sum(depth_list)
+	wg_av = whole_depth / whole_length
+	all_but_length = whole_length - len_enriched
+	all_but_depth = whole_depth - sum_enriched
+	all_but_av = all_but_depth / all_but_length
+	print wg_av
+	print all_but_av
 			
 ###
 
