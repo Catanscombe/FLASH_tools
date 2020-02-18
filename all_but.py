@@ -103,7 +103,12 @@ def probe_pair_depth(args, probe_pos, depth_list):
 			#length = len(our_list)
 			probe_depth_list.append(our_list)
 			print len(probe_depth_list)
-			
+			flat_list = []
+			for sublist in probe_depth_list:
+				for val in sublist:
+					flat_list.append(val)
+
+			print len(flat_list)
 
 #	len_enriched = len(probe_depth_list)
 	#print len_enriched
