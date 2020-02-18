@@ -104,6 +104,8 @@ def probe_pair_depth(args, probe_pos, depth_list):
 			
 			print len(probe_depth_list)
 
+		print len(probe_depth_list)
+
 	
 
 
