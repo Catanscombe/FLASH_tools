@@ -105,10 +105,12 @@ def probe_pair_depth(args, probe_pos, depth_list):
 			
 
 		len_enriched = len(probe_depth_list)
+		print len_enriched
 		sum_enriched = sum(probe_depth_list)
-		average_enriched =  sum_enriched/len_enriched
+		print sum_enriched
+		#average_enriched =  sum_enriched/len_enriched
 
-		print average_enriched
+		#print average_enriched
 
 	
 
