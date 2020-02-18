@@ -9,8 +9,10 @@ script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
 targets = 'probe_target'
 reference = 'references/NC_000962.3.fasta'
 
-
-
+# with open (reference ) as genome: 
+genome = SeqIO.read('%s/%s' % (script_dir, reference) , 'fasta')
+# for genome in genome_record:
+genome = str(genome.seq)
 
 def main():
 	parser = argparse.ArgumentParser()
