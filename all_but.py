@@ -22,7 +22,7 @@ def main():
 	args = parser.parse_args()
 
 	find_probes(args)
-
+	coverage_depth
 def find_probes(args):
 
 #find the target position of the probes from the H37Rv genome, add to dictionary per gene
@@ -71,5 +71,32 @@ def find_probes(args):
 			probe_pos[gene] = list(set(probe_pos[gene]))
 		#print probe_pos
 		return probe_pos
+
+def coverage_depth (args):
+	with open ('%s/%s' % ( script_dir, args.depth_file) , 'rb') as df:
+		depth_list = list()
+		for line in df:
+			line = line.strip().split('\t')
+			depth = line[2]
+			depth_list.append(depth)
+	print depth_list
+	return depth_list
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 main()
