@@ -97,8 +97,8 @@ def probe_pair_depth(args, probe_pos, depth_list):
 			our_list = depth_list[probe_1:probe_2]
 			print our_list
 			#length = len(our_list)
-			#probe_depth_list.append(our_list)
-			#print len(probe_depth_list)
+			probe_depth_list.extend(our_list)
+			print len(probe_depth_list)
 
 		
 
