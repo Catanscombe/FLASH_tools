@@ -24,7 +24,7 @@ def find_probes(args):
 
 #find the target position of the probes from the H37Rv genome, add to dictionary per gene
 	probe_pos = {}
-	for line in open(script_dir/targets):
+	for line in open('%s/%s' % (script_dir , targets)):
 		
 		line = line.strip().split('\t')
 		ID = line[0]
