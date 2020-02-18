@@ -96,6 +96,7 @@ def probe_pair_depth(args, probe_pos, depth_list):
 			our_list = depth_list[probe_1:probe_2]
 			
 			length = len(our_list)
+			print gene 
 			print length
 
 		
