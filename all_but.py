@@ -22,7 +22,9 @@ def main():
 	args = parser.parse_args()
 
 	find_probes(args)
-	coverage_depth
+	coverage_depth(args)
+
+	
 def find_probes(args):
 
 #find the target position of the probes from the H37Rv genome, add to dictionary per gene
