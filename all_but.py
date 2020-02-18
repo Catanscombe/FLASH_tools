@@ -97,7 +97,7 @@ def probe_pair_depth(args, probe_pos, depth_list):
 			probe_1 = sorted_pos[i]
 			probe_2 = sorted_pos[i +1]
 			our_list = depth_list[probe_1:probe_2]
-			print gene 
+			print gene , our_list
 			#print our_list
 				
 
