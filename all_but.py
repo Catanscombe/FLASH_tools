@@ -101,9 +101,10 @@ def probe_pair_depth(args, probe_pos, depth_list):
 
 			#length = len(our_list)
 			probe_depth_list.extend(probe_list)
+			probe_depth_list= list(probe_depth_list)
 			print len(probe_depth_list)
 
-		
+	
 
 
 
