@@ -35,7 +35,7 @@ def assembly_whole_genome(args):
 		WG_mapped_reads = subprocess.check_output ('samtools view -F 0x904 -c %s_S.bam'% (args.sample_ID ), shell = True)
 		#total number of reads
 		total_reads = subprocess.check_output ('samtools view -c %s_S.bam '% (args.sample_ID ), shell = True)
-
+		os.system ('samtools depth -aa -d 100000 %s_S.bam >  %s.depth' % (args.sample_ID, args.sample_ID))
 
 		os.system ('bwa mem %s/%s %s %s > %s_targets.sam '% (script_dir , targets , args.in_file_R1 , args.in_file_R2, args.sample_ID))
 		os.system ('samtools view -h -b -S %s_targets.sam > %s_targets.bam' % (args.sample_ID , args.sample_ID))
@@ -68,7 +68,7 @@ def assembly_whole_genome(args):
 
 def  get_target_tats(args):
 	
-	os.system ('samtools depth -Q 30 %s_targets_S.bam > %s_targets.depth'% (args.sample_ID , args.sample_ID))
+	os.system ('samtools depth -aa -d 100000 %s_targets_S.bam > %s_targets.depth'% (args.sample_ID , args.sample_ID))
 	with open ('%s_targets.csv' % (args.sample_ID) , 'a') as f:
 		FastaFile = open('%s/%s' % (script_dir , targets) , 'rU')
 		
