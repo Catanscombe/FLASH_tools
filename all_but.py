@@ -112,7 +112,15 @@ def probe_pair_depth(args, probe_pos, depth_list):
 
 	print average_enriched
 
-	
+	whole_length = len(depth_list)
+	whole_depth - sum(depth_list)
+
+	all_but_length = whole_length - len_enriched
+	all_but_depth = whole_depth - sum_enriched
+	all_but_av = all_but_depth / all_but_length
+
+	print all_but_av
+		
 
 
 
