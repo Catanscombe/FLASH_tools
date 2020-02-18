@@ -54,14 +54,15 @@ def find_probes(args):
 				#print target_rc
 				found_rc = genome.find(target_rc)
 				if found_rc != -1:
-					writer.writerow ([gene, ID , target, found , 'F']) gene, ID, target, found_rc , 'RC'
+					writer.writerow ([ gene, ID, target, found_rc , 'RC'])
 					if gene in probe_pos:
 						probe_pos[gene].append(found_rc)
 					else:
 						probe_pos[gene] =[]
 						probe_pos[gene].append(found_rc)
 				else: 
-					writer.writerow ([gene, ID , target, found , 'F']) gene, ID, target, 'not found'
+					writer.writerow ([ gene, ID, target, 'not found' ])
+					
 					pass
 		
 
