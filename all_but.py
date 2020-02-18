@@ -23,7 +23,7 @@ def main():
 
 	probe_pos = find_probes(args)
 	depth_list = coverage_depth(args)
-	probe_pair_depth(args, probe_pos)
+	probe_pair_depth(args, probe_pos, depth_list)
 
 
 
@@ -85,12 +85,20 @@ def coverage_depth (args):
 			depth_list.append(depth)
 	return depth_list
 
-def probe_pair_depth(args, probe_pos):
+def probe_pair_depth(args, probe_pos, depth_list):
+	probe_depth_list = ()
 	for gene in probe_pos:
 		probe_pos_list = probe_pos[gene]
 		sorted_pos = sorted(probe_pos_list)
+		for i in range (0, len(sorted_pos)-1):
+			probe_1 = sorted_pos[i]
+			probe_2 = sorted_pos[i +1]
+			our_list = depth_list[probe_1:probe_2]
+			probe_depth_list.append(our_list)
+			length = len(probe_depth_list)
 
-		print sorted_pos
+
+		
 
 
 
