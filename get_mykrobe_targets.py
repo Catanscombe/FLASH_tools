@@ -2,7 +2,9 @@ from __future__ import division
 import csv
 import re
 
-target_file = '../../git_scripts/panel.final.mykrobe.txt'
+
+script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
+target_file = 'panel.final.mykrobe.txt'
 in_file = 'Cas9-Rv.depth'
 genes = 'target_genes_info_clean.txt'
 all_genes = '../../git_scripts/all_genes'
@@ -22,7 +24,7 @@ def get_DNA(target_file):
 	#create dictionary for gene[position]
 	mykrobe_gene = {}
 	#gene gene list from mykorbe targets
-	for line in open (target_file):
+	for line in open ('%s/%s' %(script_dir , target_file):
 		line = line.strip().split('\t')
 		gene = line[0]
 		DNA = line[2]
@@ -55,7 +57,7 @@ def get_DNA(target_file):
 
 def get_prot (target_file, mykrobe_gene):
 	#create dictionary of gene [position] for proteins 
- 	for line in open (target_file):
+ 	for line in open ('%s/%s' %(script_dir , target_file)):
 		line = line.strip().split('\t')
 		gene = line[0]
 		DNA = line[2]
