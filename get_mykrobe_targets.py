@@ -194,8 +194,10 @@ def mykrobe_positions (gene_dic, mykrobe_gene):
 	return mykrobe_genome_pos
 		
 def mykrobe_fold (mykrobe_genome_pos , args):
-	fold_list = open('%s' %  (args.depth_file_fold), 'r')
-	
+	fold = open('%s' %  (args.depth_file_fold), 'r') 
+	print fold.read()
+
+
 	print fold_list
 #	for gene in mykrobe_genome_pos:
 #		snps = mykrobe_genome_pos[gene]
