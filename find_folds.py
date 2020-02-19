@@ -41,7 +41,7 @@ def get_probe_pos(args):
 			line = line.strip().split(',')
 			gene = line[0]
 			position = line[3]
-			if position != 'not found'
+			if position != 'not found':
 
 #			print gene, position
 				if gene in probe_pos:
