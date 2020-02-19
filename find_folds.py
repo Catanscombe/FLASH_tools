@@ -37,3 +37,5 @@ def probe_pos(args):
 		gene = line[0]
 		position = line[3]
 		print gene, position
+
+main()
