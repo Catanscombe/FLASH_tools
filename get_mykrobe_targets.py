@@ -194,8 +194,9 @@ def mykrobe_positions (gene_dic, mykrobe_gene):
 	return mykrobe_genome_pos
 		
 def mykrobe_fold (mykrobe_genome_pos , args):
+	fold_list = ()
 	fold = open('%s' %  (args.depth_file_fold), 'r') 
-	fold_list = fold.read()
+	fold_list = fold_list.append(fold.read())
 
 #	print fold_list
 	for gene in mykrobe_genome_pos:
