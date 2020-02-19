@@ -86,7 +86,7 @@ def coverage_depth (args):
 	return depth_list
 
 def probe_pair_depth(args, probe_pos, depth_list):
-	with open ('%s_all_but_av.csv' %s (args.sample_ID), 'w') as f:
+	with open ('%s_all_but_av.csv' % (args.sample_ID), 'w') as f:
 
 		probe_depth_list = list()
 		for gene in probe_pos:
