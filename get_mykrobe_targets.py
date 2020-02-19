@@ -17,7 +17,7 @@ def main():
 	mykrobe_prot = get_prot (target_file, mykrobe_gene)
 	#depth_list = depth (in_file)
 	gene_dic = list_lookup ()
-	#mykrobe_genome_pos = mykrobe_positions (gene_dic, mykrobe_gene)
+	mykrobe_genome_pos = mykrobe_positions (gene_dic, mykrobe_gene)
 	#get_mykrobe_depth (mykrobe_genome_pos , depth_list, all_but_av)	
 
 	#gene_depth_list = gene_depth (gene_dic , depth_list)
@@ -94,7 +94,7 @@ def get_prot (target_file, mykrobe_gene):
 	
 	for gene in mykrobe_gene:
 		snps = mykrobe_gene[gene]
-		print gene , snps 
+		#print gene , snps 
 
 	return mykrobe_gene
 	
@@ -134,7 +134,7 @@ def list_lookup ():
 		#print stop
 		gene_dic [gene] = start, stop
 	gene_dic ['eis'] = 2715371 , 2715596
-	print gene_dic
+	#print gene_dic
 	return gene_dic
 
 def mykrobe_positions (gene_dic, mykrobe_gene):
@@ -180,6 +180,7 @@ def mykrobe_positions (gene_dic, mykrobe_gene):
 	#print mykrobe_genome_pos['inhA']
 	#print mykrobe_gene['gid']
 	#print mykrobe_genome_pos['gid']
+	print mykrobe_genome_posy
 	return mykrobe_genome_pos
 		
 
