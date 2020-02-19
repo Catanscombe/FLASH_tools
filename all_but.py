@@ -128,7 +128,7 @@ def probe_pair_depth(args, probe_pos, depth_list):
 		all_but_av = all_but_depth / all_but_length
 	#	print wg_av
 	#	print all_but_av
-		writer=csv.writer(f, delimiter ',')
+		writer=csv.writer(f, delimiter  =',')
 		writer.writerow([all_but_av, average_enriched])	
 ###
 
