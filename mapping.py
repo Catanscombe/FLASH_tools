@@ -24,7 +24,7 @@ def main():
 
 
 def assembly_whole_genome(args):
-	with open ('%s_Assembly_statsw.csv' % (args.sample_ID) , 'a' ) as rf:
+	with open ('%s_assembly_stats.csv' % (args.sample_ID) , 'a' ) as rf:
 		
 		os.system ('bwa mem %s/%s %s %s > %s.sam '% (script_dir , reference , args.in_file_R1 , args.in_file_R2, args.sample_ID))
 		os.system ('samtools view -h -b -S %s.sam > %s.bam' % (args.sample_ID , args.sample_ID))
@@ -61,7 +61,7 @@ def assembly_whole_genome(args):
 		
 		writer =csv.writer(rf , delimiter = ',')
 		writer.writerow (to_print)
-	for line in fileinput.input(files = ['%s_Assembly_statsw.csv' % (args.sample_ID)] , inplace = True):
+	for line in fileinput.input(files = ['%s_assembly_stats.csv' % (args.sample_ID)] , inplace = True):
 		if fileinput.isfirstline():
 			print 'sample_ID,total_reads,WG_mapped_reads,pec_mapped_reads,genome_size,coverage_Q30,pec_genome_cov,target_mapped_reads,pec_target_mapped_reads,target_size,target_Q30_coverage,target_pec_genome_cov'
 		print line
@@ -87,6 +87,9 @@ def  get_target_tats(args):
 		    writer.writerow (out_put)
 
 		FastaFile.close()
-
+	for line in fileinput.input(files = ['%s_targets.csv' % (args.sample_ID)] , inplace = True):
+		if fileinput.isfirstline():
+			print 'name, gene length, coverage, pec coverage'
+		print line
 
 main()
