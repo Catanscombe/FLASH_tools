@@ -2,6 +2,7 @@ from __future__ import division
 import csv
 import re
 import os
+import sys
 
 
 script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
