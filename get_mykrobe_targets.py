@@ -122,7 +122,7 @@ def depth (in_file):
 def list_lookup (depth_list, genes):
 
 	gene_dic = {}
-	for line in open ('%s/%s' % (script_dir , genes):
+	for line in open ('%s/%s' % (script_dir , genes)):
 		#print line
 		line = line.strip().split(' ')
 		gene = line[0]
