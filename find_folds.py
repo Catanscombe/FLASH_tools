@@ -49,8 +49,8 @@ def get_probe_pos(args):
 				else:
 					probe_pos[gene] = []
 					probe_pos[gene].append(position)
-			else: 
-				print gene, 'not found'
+#			else: 
+#				print gene, 'not found'
 		for gene in probe_pos:
 			probe_pos[gene] = list(set(probe_pos[gene]))
 #		print probe_pos['tlyA']
