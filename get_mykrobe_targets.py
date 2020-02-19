@@ -148,7 +148,7 @@ def mykrobe_positions (gene_dic, mykrobe_gene):
 			#print gene , 'gene missing'	
 		
 
-		for entry in open('%s/%s ' % (script_dir , all_genes)):
+		for entry in open('%s/%s' % (script_dir , all_genes)):
 			#print entry
 			entry = entry.split('\t')
 			#print entry[0]
