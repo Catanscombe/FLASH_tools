@@ -21,8 +21,8 @@ def main():
 
 	all_but_av = all_but(args)
 	probe_pos = get_probe_pos(args)
-	genome_fold (probe_pos, args, all_but_av)
-
+	fold_list = genome_fold (probe_pos, args, all_but_av)
+	fold_per_gene(args , fold_list , probe_pos)
 
 
 def all_but(args):
@@ -69,5 +69,12 @@ def genome_fold (probe_pos, args, all_but_av):
 		writer = csv.writer(depth_file)
 		writer.writerow(fold_list)
 	return fold_list
+ 
+
+ def fold_per_gene(args , fold_list , probe_pos)
+ 	for gene in probe_pos: 
+ 		last_probe = max(probe_pos[gene])
+ 		first_probe = min(probe_pos[gene])
+ 		print gene , first_probe , last_probe
 
 main()
