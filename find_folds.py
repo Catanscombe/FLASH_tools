@@ -19,7 +19,7 @@ def main():
 	parser.add_argument('sample_ID' , help = 'file naming')
 	args = parser.parse_args()
 
-	all_but = all_but(args)
+	all_but_av = all_but(args)
 	probe_pos(args)
 
 def all_but(args):
@@ -27,8 +27,8 @@ def all_but(args):
 		next(f)
 		for line in f:
 			line = line.strip().split(',')
-			all_but = line[0]
-			return all_but
+			all_but_av = line[0]
+			return all_but_av
 		
 
 def probe_pos(args):
