@@ -194,10 +194,9 @@ def mykrobe_positions (gene_dic, mykrobe_gene):
 	return mykrobe_genome_pos
 		
 def mykrobe_fold (mykrobe_genome_pos , args):
-	
 	for gene in mykrobe_genome_pos:
-		print gene 
-		print mykrobe_genome_pos[gene]
+		snps = mykrobe_genome_pos[gene]
+		print gene, snps
 
 
 
