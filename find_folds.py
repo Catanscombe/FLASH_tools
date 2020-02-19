@@ -64,7 +64,7 @@ def genome_fold (probe_pos, args, all_but_av):
 			fold = depth/all_but_av
 			#print fold
 			fold_list.append(fold)
-	print fold_list
+	print len(fold_list)
 	return fold_list
 
 main()
