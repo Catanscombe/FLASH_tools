@@ -17,7 +17,7 @@ def main():
 	mykrobe_prot = get_prot (target_file, mykrobe_gene)
 	#depth_list = depth (in_file)
 	gene_dic = list_lookup ()
-	mykrobe_genome_pos = mykrobe_positions (gene_dic, mykrobe_gene)
+	#mykrobe_genome_pos = mykrobe_positions (gene_dic, mykrobe_gene)
 	#get_mykrobe_depth (mykrobe_genome_pos , depth_list, all_but_av)	
 
 	#gene_depth_list = gene_depth (gene_dic , depth_list)
