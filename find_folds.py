@@ -54,17 +54,20 @@ def get_probe_pos(args):
 
 def genome_fold (probe_pos, args, all_but_av):
 # create a list of the relative fold depth acrosless the whole genome
-	with open('%s.depth' %(args.sample_ID), 'rb') as f:
-		fold_list = list()
-		for line in f:
-			line = line.strip().split('\t')
+	with open ('%s_fold.depth' % (args.sample_ID) , 'w') as depth_file:
+		with open('%s.depth' %(args.sample_ID), 'rb') as f:
+			fold_list = list()
+			for line in f:
+				line = line.strip().split('\t')
 
-			depth = float(line[2])
-			#print depth
-			fold = depth/all_but_av
-			#print fold
-			fold_list.append(fold)
-	print len(fold_list)
+				depth = float(line[2])
+				#print depth
+				fold = depth/all_but_av
+				#print fold
+				fold_list.append(fold)
+	#print len(fold_list)
+		writer = csv.writer(depth_file)
+		writer.writerow(fold_list)
 	return fold_list
 
 main()
