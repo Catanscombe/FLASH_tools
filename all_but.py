@@ -5,6 +5,7 @@ import os
 import argparse
 import sys
 import csv
+import fileinput
 
 script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
 targets = 'probe_target'
@@ -130,7 +131,11 @@ def probe_pair_depth(args, probe_pos, depth_list):
 	#	print all_but_av
 		writer=csv.writer(f, delimiter  =',')
 		writer.writerow([all_but_av, average_enriched])	
-###
+
+	for line in fileinput.input(files = ['%s_all_but_av.csv' % (args.sample_ID)], inplace = True ):
+		if fileinput.isfirstline():
+			print 'all_but_av, enriched_av'
+		print line
 
 
 
