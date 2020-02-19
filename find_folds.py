@@ -101,7 +101,11 @@ def fold_per_gene(args , fold_list , probe_pos):
 				writer = csv.writer(f2 , delimiter = ',')
 				writer.writerow([ gene , length , min_fold , max_fold , less_1 , _1_5 , greater_5] ) 
 #
-
+		
+		for line in fileinput.input(files = ['%s_gene_depths_stats.csv' % (args.sample_ID)], inplace = True ):
+			if fileinput.isfirstline():
+				print 'gene, length, min_fold , max_fold , <1 , 1-5 , >5'
+			print line
 
 
 #		print gene , max_fold
