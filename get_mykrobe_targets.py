@@ -9,7 +9,7 @@ script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
 target_file = 'panel.final.mykrobe.txt'
 #in_file = 'Cas9-Rv.depth'
 genes = 'target_genes_info_clean.txt'
-#all_genes = '../../git_scripts/all_genes'
+all_genes = 'all_genes'
 #all_but_av = 105
 
 def main():
@@ -148,7 +148,7 @@ def mykrobe_positions (gene_dic, mykrobe_gene):
 			#print gene , 'gene missing'	
 		
 
-		for entry in open(all_genes):
+		for entry in open('%s/%s ' % (script_dir , all_genes):
 			#print entry
 			entry = entry.split('\t')
 			#print entry[0]
@@ -186,57 +186,7 @@ def mykrobe_positions (gene_dic, mykrobe_gene):
 
 
 
-# needs to be target depth 
-def get_mykrobe_depth (mykrobe_genome_pos , depth_list , all_but_av):
-	mykrobe_depth_list = list()
-	mykrobe_depth_posistion_list = list()
-	mykrobe_fold = {}
-	for gene in mykrobe_genome_pos:
-		print gene
-		genome_points = mykrobe_genome_pos[gene]
-		
-		for i in genome_points:
-			depth = depth_list[i]
-			mykrobe_depth_posistion_list.append(i)
-			mykrobe_depth_list.append(depth)
-			fold = depth/all_but_av
-			#print i , depth, fold
-			#print len(mykrobe_depth_list)
 
-			
-
-		#print gene
-		#print 'position'
-		#print mykrobe_depth_posistion_list
-		#print 'depth'
-		#print mykrobe_depth_list
-		#print sum(mykrobe_depth_list)/ len(mykrobe_depth_list)
-		#print max(mykrobe_depth_list)
-		#print min(mykrobe_depth_list)
-
-
-			
-
-
-		
-		#print gene 
-		#print depth_points
-
-
-
-#	gene_depth_list = list()
-#	for gene in gene_dic:
-#		depth_points = depth_list[ gene_dic[gene][0]:gene_dic[gene][1]]
-#		gene_depth_list.extend(depth_points)
-#		print gene
-#		#print gene_dic[gene]
-#		#print depth_points
-#		print sum(depth_points) / len(depth_points)
-#		print min(depth_points)
-#		print max(depth_points)
-#	print len(gene_depth_list)
-	#print gene_depth_list
-#	return gene_depth_list
 
 
 main()
