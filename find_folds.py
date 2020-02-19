@@ -48,4 +48,20 @@ def get_probe_pos(args):
 			probe_pos[gene] = list(set(probe_pos[gene]))
 		print probe_pos['tlyA']
 		return probe_pos
+
+def genome_fold (probe_pos, args, all_but_av):
+# create a list of the relative fold depth acrosless the whole genome
+	with open('%s' %(args.sample_ID), 'rb') as f:
+		fold_list = list()
+		for line in f:
+			line = line.strip().split('\t')
+
+			depth = float(line[2])
+			#print depth
+			fold = depth/all_but_av
+			#print fold
+			fold_list.append(fold)
+	print fold_list
+	return fold_list
+
 main()
