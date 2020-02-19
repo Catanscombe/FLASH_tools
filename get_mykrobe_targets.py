@@ -24,7 +24,7 @@ def get_DNA(target_file):
 	#create dictionary for gene[position]
 	mykrobe_gene = {}
 	#gene gene list from mykorbe targets
-	for line in open ('%s/%s' %(script_dir , target_file):
+	for line in open ('%s/%s' %(script_dir , target_file)):
 		line = line.strip().split('\t')
 		gene = line[0]
 		DNA = line[2]
