@@ -21,7 +21,10 @@ def main():
 
 	all_but_av = all_but(args)
 	probe_pos = get_probe_pos(args)
+	genome_fold (probe_pos, args, all_but_av)
 
+
+	
 def all_but(args):
 	with open ('%s_all_but_av.csv' % (args.sample_ID), 'r') as f:
 		next(f)
