@@ -25,7 +25,7 @@ def main():
 	#fold_list = fold (args)
 	gene_dic = list_lookup ()
 	mykrobe_genome_pos = mykrobe_positions (gene_dic, mykrobe_gene)
-	mykrobe_fold (mykrobe_positions , args)
+	mykrobe_fold (mykrobe_genome_pos , args)
 	
 
 def get_DNA(target_file):
