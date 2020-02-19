@@ -22,7 +22,7 @@ def main():
 
 	mykrobe_gene = get_DNA(target_file)	
 	mykrobe_prot = get_prot (target_file, mykrobe_gene)
-	fold_list = fold (in_file)
+	fold_list = fold (args)
 	gene_dic = list_lookup ()
 	mykrobe_genome_pos = mykrobe_positions (gene_dic, mykrobe_gene)
 	mykrobe_fold (mykrobe_positions , fold_list)
