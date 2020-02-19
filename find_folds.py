@@ -20,7 +20,7 @@ def main():
 	args = parser.parse_args()
 
 	all_but_av = all_but(args)
-	probe_pos(args)
+	probe_pos = get_probe_pos(args)
 
 def all_but(args):
 	with open ('%s_all_but_av.csv' % (args.sample_ID), 'r') as f:
@@ -31,7 +31,7 @@ def all_but(args):
 			return all_but_av
 		
 
-def probe_pos(args):
+def get_probe_pos(args):
 	probe_pos = {}
 	with open ('%s_probe_positions.csv' % (args.sample_ID) , 'r') as fi:
 		for line in fi:
