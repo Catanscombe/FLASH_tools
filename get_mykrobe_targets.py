@@ -180,7 +180,7 @@ def mykrobe_positions (gene_dic, mykrobe_gene):
 	#print mykrobe_genome_pos['inhA']
 	#print mykrobe_gene['gid']
 	#print mykrobe_genome_pos['gid']
-	print mykrobe_genome_posy
+	print mykrobe_genome_pos
 	return mykrobe_genome_pos
 		
 
