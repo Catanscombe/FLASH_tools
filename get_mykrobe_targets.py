@@ -196,7 +196,8 @@ def mykrobe_positions (gene_dic, mykrobe_gene):
 def mykrobe_fold (mykrobe_genome_pos , args):
 	for gene in mykrobe_genome_pos:
 		snps = mykrobe_genome_pos[gene]
-		print gene, snps
+		for snp in snps:
+			print gene, snp
 
 
 
