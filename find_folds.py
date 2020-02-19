@@ -46,6 +46,6 @@ def probe_pos(args):
 				probe_pos[gene].append(position)
 		for gene in probe_pos:
 			probe_pos[gene] = list(set(probe_pos[gene]))
-		print probe_pos[tlyA]
+		print probe_pos['tlyA']
 		return probe_pos
 main()
