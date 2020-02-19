@@ -45,10 +45,11 @@ def get_probe_pos(args):
 
 #			print gene, position
 				if gene in probe_pos:
-					probe_pos[gene].append(position)
+					probe_pos[gene].append(int(position))
 				else:
 					probe_pos[gene] = []
-					probe_pos[gene].append(position)
+					probe_pos[gene].append(int(position))
+
 #			else: 
 #				print gene, 'not found'
 		for gene in probe_pos:
@@ -78,8 +79,8 @@ def genome_fold (probe_pos, args, all_but_av):
 def fold_per_gene(args , fold_list , probe_pos):
  	for gene in probe_pos: 
  		print gene , probe_pos[gene]
- 		last_probe = int(max(probe_pos[gene]))
- 		first_probe = int(min(probe_pos[gene]))
+ 		last_probe = max(probe_pos[gene])
+ 		first_probe = min(probe_pos[gene])
  		print gene , first_probe , last_probe
 #		fold_points = fold_list[first_probe:last_probe]
 #		print gene
