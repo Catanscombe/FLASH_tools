@@ -30,7 +30,7 @@ def all_but(args):
 		next(f)
 		for line in f:
 			line = line.strip().split(',')
-			all_but_av = int(line[0])
+			all_but_av = float(line[0])
 			return all_but_av
 		
 
