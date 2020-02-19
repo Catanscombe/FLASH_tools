@@ -39,3 +39,21 @@ Analysis tools for samples process using FLASH for mTB.
  		(gene, probe_name , probe_Sequence . genome_point , direction_of_probe)
  		2) 'sample_ID_all_but.csv' contains average depth of the enriched and not enriched genome regions
 
+
+3) find_folds.py
+
+This script describes the fold increase across the whole genome and for all genes in enriched
+
+	usage: find_folds.py [-h] depth_file sample_ID
+
+	positional arguments:
+  depth_file  depth file, sample.depth
+  sample_ID   file naming
+
+	optional arguments:
+  -h, --help  show this help message and exit
+
+ 	Outputs:
+ 	1)'sample_ID_gene_fold.csv' for each gene there are all the fold enrichemnt values between the first and last probe targetting that region
+ 	2)'sample_ID_gene_fold_stats' per gene stats about the enrichent including max and min fold. Also the number of points with less than one fold enrichment, 1-5 fold enrichment and > 5 fold enrichment
+
