@@ -86,48 +86,50 @@ def coverage_depth (args):
 	return depth_list
 
 def probe_pair_depth(args, probe_pos, depth_list):
-	probe_depth_list = list()
-	for gene in probe_pos:
+	with open ('%s_all_but_av.csv' %s (args.sample_ID), 'w') as f:
 
-		probe_pos_list = probe_pos[gene]
-		#print probe_pos_list
-		sorted_pos = sorted(probe_pos_list)
-		for i in range (0, len(sorted_pos)-1):
-			probe_1 = sorted_pos[i]
-			probe_2 = sorted_pos[i +1]
-			our_list = depth_list[probe_1:probe_2]
-			#print gene , our_list
-			#print our_list
+		probe_depth_list = list()
+		for gene in probe_pos:
+
+			probe_pos_list = probe_pos[gene]
+			#print probe_pos_list
+			sorted_pos = sorted(prxobe_pos_list)
+			for i in range (0, len(sorted_pos)-1):
+				probe_1 = sorted_pos[i]
+				probe_2 = sorted_pos[i +1]
+				our_list = depth_list[probe_1:probe_2]
+				#print gene , our_list
+				#print our_list
+					
+
+				#length = len(our_list)
+				probe_depth_list.append(our_list)
+				#print len(probe_depth_list)
+				flat_list = []
+				for sublist in probe_depth_list:
+					for val in sublist:
+						flat_list.append(val)
+
 				
 
-			#length = len(our_list)
-			probe_depth_list.append(our_list)
-			print len(probe_depth_list)
-			flat_list = []
-			for sublist in probe_depth_list:
-				for val in sublist:
-					flat_list.append(val)
+		len_enriched = len(flat_list)
+	#	print len_enriched
+		sum_enriched = sum(flat_list)
+	#	print sum_enriched
+		average_enriched =  sum_enriched/len_enriched
 
-			print len(flat_list)
-			#print flat_list
+	#	print average_enriched
 
-	len_enriched = len(flat_list)
-	print len_enriched
-	sum_enriched = sum(flat_list)
-	print sum_enriched
-	average_enriched =  sum_enriched/len_enriched
-
-	print average_enriched
-
-	whole_length = len(depth_list)
-	whole_depth = sum(depth_list)
-	wg_av = whole_depth / whole_length
-	all_but_length = whole_length - len_enriched
-	all_but_depth = whole_depth - sum_enriched
-	all_but_av = all_but_depth / all_but_length
-	print wg_av
-	print all_but_av
-			
+		whole_length = len(depth_list)
+		whole_depth = sum(depth_list)
+		wg_av = whole_depth / whole_length
+		all_but_length = whole_length - len_enriched
+		all_but_depth = whole_depth - sum_enriched
+		all_but_av = all_but_depth / all_but_length
+	#	print wg_av
+	#	print all_but_av
+		writer=csv.writer(f, delimiter ',')
+		writer.writerow([all_but_av, average_enriched])	
 ###
 
 
