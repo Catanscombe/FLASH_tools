@@ -23,35 +23,35 @@ Analysis tools for samples process using FLASH for mTB.
 		5)'sample_ID.depth' a file containing the depth at all points in the whole genome
 
 2) all_but.py
-	This scripts finds the genome position of the probes and the average depth of the enriched and not enriched genome regions
+		This scripts finds the genome position of the probes and the average depth of the enriched and not enriched genome regions
 
-	usage: all_but.py [-h] depth_file sample_ID
+		usage: all_but.py [-h] depth_file sample_ID
 
-	positional arguments:
-  		depth_file  depth file, sample.depth
-  		sample_ID   file naming
+		positional arguments:
+	  		depth_file  depth file, sample.depth
+	  		sample_ID   file naming
 
-	optional arguments:
- 		 -h, --help  show this help message and exit
+		optional arguments:
+	 		 -h, --help  show this help message and exit
 
- 	outputs: 
- 		1) 'sample_ID_probe_positions.csv' a file containing the genome points of the probes
- 		(gene, probe_name , probe_Sequence . genome_point , direction_of_probe)
- 		2) 'sample_ID_all_but.csv' contains average depth of the enriched and not enriched genome regions
+	 	outputs: 
+	 		1) 'sample_ID_probe_positions.csv' a file containing the genome points of the probes
+	 		(gene, probe_name , probe_Sequence . genome_point , direction_of_probe)
+	 		2) 'sample_ID_all_but.csv' contains average depth of the enriched and not enriched genome regions
 
 
 3) find_folds.py
 
-This script describes the fold increase across the whole genome and for all genes in enriched
+	This script describes the fold increase across the whole genome and for all genes in enriched
 
 	usage: find_folds.py [-h] depth_file sample_ID
 
 	positional arguments:
-  depth_file  depth file, sample.depth
-  sample_ID   file naming
+	  depth_file  depth file, sample.depth
+	  sample_ID   file naming
 
 	optional arguments:
-  -h, --help  show this help message and exit
+  		-h, --help  show this help message and exit
 
  	Outputs:
  	1)'sample_ID_gene_fold.csv' for each gene there are all the fold enrichemnt values between the first and last probe targetting that region

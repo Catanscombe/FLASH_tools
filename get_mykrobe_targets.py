@@ -11,10 +11,10 @@ all_but_av = 105
 def main():
 	mykrobe_gene = get_DNA(target_file)	
 	mykrobe_prot = get_prot (target_file, mykrobe_gene)
-	depth_list = depth (in_file)
-	gene_dic = list_lookup (depth_list , genes)
-	mykrobe_genome_pos = mykrobe_positions (gene_dic, mykrobe_gene)
-	get_mykrobe_depth (mykrobe_genome_pos , depth_list, all_but_av)	
+	#depth_list = depth (in_file)
+	#gene_dic = list_lookup (depth_list , genes)
+	#mykrobe_genome_pos = mykrobe_positions (gene_dic, mykrobe_gene)
+	#get_mykrobe_depth (mykrobe_genome_pos , depth_list, all_but_av)	
 
 	#gene_depth_list = gene_depth (gene_dic , depth_list)
 
@@ -88,7 +88,9 @@ def get_prot (target_file, mykrobe_gene):
 		mykrobe_gene[gene] = list (set(mykrobe_gene[gene]))
 	#print mykrobe_gene['rpoB']
 	
-	
+	for gene in mykrobe_gene:
+		snps = mykrobe_gene[gene]
+		print gene , snps 
 
 	return mykrobe_gene
 	

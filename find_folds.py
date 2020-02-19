@@ -77,8 +77,8 @@ def genome_fold (probe_pos, args, all_but_av):
  
 
 def fold_per_gene(args , fold_list , probe_pos):
- 	with open ('%s_gene_depths.csv' % (args.sample_ID) , 'a') as f:
- 		with open ('%s_gene_depths_stats.csv' % (args.sample_ID) , 'a') as f2:
+ 	with open ('%s_gene_fold.csv' % (args.sample_ID) , 'a') as f:
+ 		with open ('%s_gene_fold_stats.csv' % (args.sample_ID) , 'a') as f2:
 
 		 	for gene in probe_pos: 
 
