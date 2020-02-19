@@ -7,17 +7,17 @@ import sys
 
 script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
 target_file = 'panel.final.mykrobe.txt'
-in_file = 'Cas9-Rv.depth'
+#in_file = 'Cas9-Rv.depth'
 genes = 'target_genes_info_clean.txt'
-all_genes = '../../git_scripts/all_genes'
-all_but_av = 105
+#all_genes = '../../git_scripts/all_genes'
+#all_but_av = 105
 
 def main():
 	mykrobe_gene = get_DNA(target_file)	
 	mykrobe_prot = get_prot (target_file, mykrobe_gene)
 	#depth_list = depth (in_file)
-	#gene_dic = list_lookup (depth_list , genes)
-	#mykrobe_genome_pos = mykrobe_positions (gene_dic, mykrobe_gene)
+	gene_dic = list_lookup (depth_list , genes)
+	mykrobe_genome_pos = mykrobe_positions (gene_dic, mykrobe_gene)
 	#get_mykrobe_depth (mykrobe_genome_pos , depth_list, all_but_av)	
 
 	#gene_depth_list = gene_depth (gene_dic , depth_list)
@@ -122,7 +122,7 @@ def depth (in_file):
 def list_lookup (depth_list, genes):
 
 	gene_dic = {}
-	for line in open (genes):
+	for line in open ('%s/%s' % (script_dir , genes):
 		#print line
 		line = line.strip().split(' ')
 		gene = line[0]
@@ -134,7 +134,7 @@ def list_lookup (depth_list, genes):
 		#print stop
 		gene_dic [gene] = start, stop
 	gene_dic ['eis'] = 2715371 , 2715596
-	#print gene_dic
+	print gene_dic
 	return gene_dic
 
 def mykrobe_positions (gene_dic, mykrobe_gene):
