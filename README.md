@@ -2,26 +2,40 @@
 Analysis tools for samples process using FLASH for mTB. 
 
 1)mapping.py
-This script will reference map the reads (using bwa mem) to NC_000962.3 Mycobacterium tuberculosis H37Rv, complete genome. It will also map the reads to the 50 genes which are targetted for enrichment
-output: 
-	1)'sample_ID_assembly_stsats.csv' which contains read and mapping information. 
-	2)'sample_ID_S.bam' a sorted bam file from the whole genome mapping
-	3)'sample_ID_targets_S.bam' sorted bam file from reference mapping ot target genes
-	4)'sample_ID.depth' a file containing the depth at all points in the whole genome
+	This script will reference map the reads (using bwa mem) to NC_000962.3 Mycobacterium tuberculosis H37Rv, complete genome. It will also map the reads to the 50 genes which are targetted for enrichment
 
 
+	usage: mapping.py [-h] in_file_R1 in_file_R2 sample_ID
 
+	positional arguments:
+	  in_file_R1  forward read
+	  in_file_R2  reverse read
+	  sample_ID   how you want out files to be named
 
+	optional arguments:
+	  -h, --help  show this help message and exit
 
-usage: mapping.py [-h] in_file_R1 in_file_R2 sample_ID
+	outputs: 
+		1)'sample_ID_assembly_stsats.csv' which contains read and mapping information.
+		2)'sample_ID_targets.csv' contains mapping results for each of the 50 targets
+		3)'sample_ID_S.bam' a sorted bam file from the whole genome mapping
+		4)'sample_ID_targets_S.bam' sorted bam file from reference mapping ot target genes
+		5)'sample_ID.depth' a file containing the depth at all points in the whole genome
 
-positional arguments:
-  in_file_R1  forward read
-  in_file_R2  reverse read
-  sample_ID   how you want out files to be named
+2) all_but.py
+	This scripts finds the genome position of the probes and the average depth of the enriched and not enriched genome regions
 
-optional arguments:
-  -h, --help  show this help message and exit
+	usage: all_but.py [-h] depth_file sample_ID
 
+	positional arguments:
+  		depth_file  depth file, sample.depth
+  		sample_ID   file naming
 
+	optional arguments:
+ 		 -h, --help  show this help message and exit
+
+ 	outputs: 
+ 		1) 'sample_ID_probe_positions.csv' a file containing the genome points of the probes
+ 		(gene, probe_name , probe_Sequence . genome_point , direction_of_probe)
+ 		2) 'sample_ID_all_but.csv' contains average depth of the enriched and not enriched genome regions
 

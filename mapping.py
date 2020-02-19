@@ -89,7 +89,7 @@ def  get_target_tats(args):
 		FastaFile.close()
 	for line in fileinput.input(files = ['%s_targets.csv' % (args.sample_ID)] , inplace = True):
 		if fileinput.isfirstline():
-			print 'name, gene length, coverage, pec coverage'
+			print 'name, gene length, coverage, pec'
 		print line
 
 main()
