@@ -71,7 +71,7 @@ def genome_fold (probe_pos, args, all_but_av):
 	return fold_list
  
 
- def fold_per_gene(args , fold_list , probe_pos)
+def fold_per_gene(args , fold_list , probe_pos):
  	for gene in probe_pos: 
  		last_probe = max(probe_pos[gene])
  		first_probe = min(probe_pos[gene])
