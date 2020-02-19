@@ -41,15 +41,19 @@ def get_probe_pos(args):
 			line = line.strip().split(',')
 			gene = line[0]
 			position = line[3]
+			if position != 'not found'
+
 #			print gene, position
-			if gene in probe_pos:
-				probe_pos[gene].append(position)
-			else:
-				probe_pos[gene] = []
-				probe_pos[gene].append(position)
+				if gene in probe_pos:
+					probe_pos[gene].append(position)
+				else:
+					probe_pos[gene] = []
+					probe_pos[gene].append(position)
+			else: 
+				print gene, 'not found'
 		for gene in probe_pos:
 			probe_pos[gene] = list(set(probe_pos[gene]))
-		print probe_pos['tlyA']
+#		print probe_pos['tlyA']
 		return probe_pos
 
 def genome_fold (probe_pos, args, all_but_av):
