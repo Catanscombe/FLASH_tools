@@ -22,10 +22,10 @@ def main():
 
 	mykrobe_gene = get_DNA(target_file)	
 	mykrobe_prot = get_prot (target_file, mykrobe_gene)
-	fold_list = fold (args)
+	#fold_list = fold (args)
 	gene_dic = list_lookup ()
 	mykrobe_genome_pos = mykrobe_positions (gene_dic, mykrobe_gene)
-	mykrobe_fold (mykrobe_positions , fold_list)
+	mykrobe_fold (mykrobe_positions , args)
 	
 
 def get_DNA(target_file):
@@ -193,10 +193,11 @@ def mykrobe_positions (gene_dic, mykrobe_gene):
 	#print mykrobe_genome_pos
 	return mykrobe_genome_pos
 		
-def mykrobe_fold (mykrobe_positions , fold_list):
+def mykrobe_fold (mykrobe_positions , args):
 	
 	for gene in mykrobe_positions:
 		print gene 
+		print mykrobe_positions[gene]
 
 
 
