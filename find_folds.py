@@ -83,7 +83,9 @@ def fold_per_gene(args , fold_list , probe_pos):
  		first_probe = min(probe_pos[gene])
  		print gene , first_probe , last_probe
 		fold_points = fold_list[first_probe:last_probe]
-		print gene
+		
+#		print gene
+#		print fold_points
 		max_fold = max(fold_points)
 
 		print gene , max_fold
