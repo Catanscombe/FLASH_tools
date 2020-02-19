@@ -3,24 +3,30 @@ import csv
 import re
 import os
 import sys
-
+import argparse
+import csv
 
 script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
 target_file = 'panel.final.mykrobe.txt'
-#in_file = 'Cas9-Rv.depth'
+
 genes = 'target_genes_info_clean.txt'
 all_genes = 'all_genes'
-#all_but_av = 105
+
 
 def main():
+	parser = argparse.ArgumentParser()
+	parser.add_argument('depth_file_fold' , help = 'depth fold file, sample_fold.depth')
+	parser.add_argument('sample_ID' , help = 'file naming')
+	args = parser.parse_args()
+
+
 	mykrobe_gene = get_DNA(target_file)	
 	mykrobe_prot = get_prot (target_file, mykrobe_gene)
-	#depth_list = depth (in_file)
+	fold_list = fold (in_file)
 	gene_dic = list_lookup ()
 	mykrobe_genome_pos = mykrobe_positions (gene_dic, mykrobe_gene)
-	#get_mykrobe_depth (mykrobe_genome_pos , depth_list, all_but_av)	
-
-	#gene_depth_list = gene_depth (gene_dic , depth_list)
+	mykrobe_fold (mykrobe_positions , fold_list)
+	
 
 def get_DNA(target_file):
 	#create dictionary for gene[position]
@@ -99,9 +105,9 @@ def get_prot (target_file, mykrobe_gene):
 	return mykrobe_gene
 	
 
-def depth (in_file):
-	with open (in_file, 'rb') as f:
-		depth_list = list()
+def fold (args):
+	with open ('%s' % (args.depth_file_fold) , 'rb') as f:
+		fold_list = list()
 		for line in f:
 		
 			#print line
@@ -115,7 +121,7 @@ def depth (in_file):
 
 		#print depth_list
 
-	return depth_list
+	return fold_list
 
 
 
@@ -187,9 +193,10 @@ def mykrobe_positions (gene_dic, mykrobe_gene):
 	#print mykrobe_genome_pos
 	return mykrobe_genome_pos
 		
-
-
-
+def mykrobe_fold (mykrobe_positions , fold_list)
+	
+	for gene in mykrobe_positions:
+		print gene 
 
 
 
