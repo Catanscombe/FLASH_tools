@@ -32,11 +32,20 @@ def all_but(args):
 		
 
 def probe_pos(args):
+	probe_pos = {}
 	with open ('%s_probe_positions.csv' % (args.sample_ID) , 'r') as fi:
 		for line in fi:
 			line = line.strip().split(',')
 			gene = line[0]
 			position = line[3]
-			print gene, position
-
+#			print gene, position
+			if gene in probe_pos:
+				probe_pos[gene].append(position)
+			else:
+				probe_pos[gene] = []
+				probe_pos[gene].append(position)
+		for gene in probe_pos:
+			probe_pos[gene] = list(set(probe_pos[gene]))
+		print probe_pos[tlyA]
+		return probe_pos
 main()
