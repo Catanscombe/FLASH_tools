@@ -32,7 +32,7 @@ def all_but(args):
 		
 
 def probe_pos(args):
-	with open ('%s_probe_positions.csv' % (args.sample_ID). 'r') as fi:
+	with open ('%s_probe_positions.csv' % (args.sample_ID) , 'r') as fi:
 		line = line.strip().split(',')
 		gene = line[0]
 		position = line[3]
