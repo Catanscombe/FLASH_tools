@@ -24,7 +24,7 @@ def main():
 	genome_fold (probe_pos, args, all_but_av)
 
 
-	
+
 def all_but(args):
 	with open ('%s_all_but_av.csv' % (args.sample_ID), 'r') as f:
 		next(f)
@@ -54,7 +54,7 @@ def get_probe_pos(args):
 
 def genome_fold (probe_pos, args, all_but_av):
 # create a list of the relative fold depth acrosless the whole genome
-	with open('%s' %(args.sample_ID), 'rb') as f:
+	with open('%s.depth' %(args.sample_ID), 'rb') as f:
 		fold_list = list()
 		for line in f:
 			line = line.strip().split('\t')
