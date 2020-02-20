@@ -26,7 +26,7 @@ def main():
 def assembly_whole_genome(args):
 	with open ('%s_assembly_stats.csv' % (args.sample_ID) , 'a' ) as rf:
 		
-		os.system ('bwa mem %s/%s %s %s > %s.sam '% (script_dir , reference , args.in_file_R1 , args.in_file_R2, args.sample_ID))
+		os.system ('bwa mem -t 4 %s/%s %s %s > %s.sam '% (script_dir , reference , args.in_file_R1 , args.in_file_R2, args.sample_ID))
 		os.system ('samtools view -h -b -S %s.sam > %s.bam' % (args.sample_ID , args.sample_ID))
 		os.system ('samtools sort %s.bam > %s_S.bam' % (args.sample_ID, args.sample_ID))
 		os.system ('samtools index %s_S.bam ' % (args.sample_ID))
@@ -38,7 +38,7 @@ def assembly_whole_genome(args):
 		total_reads = subprocess.check_output ('samtools view -c %s_S.bam '% (args.sample_ID ), shell = True)
 		os.system ('samtools depth -aa -d 100000 %s_S.bam >  %s.depth' % (args.sample_ID, args.sample_ID))
 
-		os.system ('bwa mem %s/%s %s %s > %s_targets.sam '% (script_dir , targets , args.in_file_R1 , args.in_file_R2, args.sample_ID))
+		os.system ('bwa mem -t 4 %s/%s %s %s > %s_targets.sam '% (script_dir , targets , args.in_file_R1 , args.in_file_R2, args.sample_ID))
 		os.system ('samtools view -h -b -S %s_targets.sam > %s_targets.bam' % (args.sample_ID , args.sample_ID))
 		os.system ('samtools sort %s_targets.bam > %s_targets_S.bam' % (args.sample_ID, args.sample_ID))
 		os.system ('samtools index %s_targets_S.bam ' % (args.sample_ID))
