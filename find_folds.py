@@ -118,7 +118,7 @@ def probe_pair_depths (args , probe_pos , fold_list):
 
 
 #	print 'gene' , 'probe_1' , 'probe_2' ,'low_fold' , 'high_fold' ,'<1_probe' , '1-5_probe' , '>5_probe' , 'probe_pair_len'
-	with open ('%s_probe_pairs.csv' % (args.sample_ID) . 'a') as f:
+	with open ('%s_probe_pairs.csv' % (args.sample_ID) , 'a') as f:
 
 		for gene in probe_pos:
 			#print probe_pos[gene]
