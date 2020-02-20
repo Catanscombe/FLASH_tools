@@ -6,6 +6,7 @@ import argparse
 import sys
 import csv
 import fileinput
+import subprocess
 
 script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
 targets = 'probe_target'
