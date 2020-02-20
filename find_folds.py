@@ -26,7 +26,7 @@ def main():
 	probe_pos = get_probe_pos(args)
 	fold_list = genome_fold (probe_pos, args, all_but_av)
 	fold_per_gene(args , fold_list , probe_pos)
-
+	probe_pair_depths (args , probe_pos , fold_list)
 
 def all_but(args):
 	with open ('%s' % (args.all_but), 'r') as f:
