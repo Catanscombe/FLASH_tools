@@ -17,7 +17,9 @@ reference = 'references/NC_000962.3.fasta'
 def main():
 	parser = argparse.ArgumentParser()
 	parser.add_argument('depth_file' , help = 'depth file, sample.depth')
+	parser.add_argument('all_but' , help = 'csv file contianing the all_but_av')
 	parser.add_argument('sample_ID' , help = 'file naming')
+
 	args = parser.parse_args()
 
 	all_but_av = all_but(args)
@@ -27,7 +29,7 @@ def main():
 
 
 def all_but(args):
-	with open ('%s_all_but_av.csv' % (args.sample_ID), 'r') as f:
+	with open ('%s' % (args.all_but), 'r') as f:
 		next(f)
 		for line in f:
 			line = line.strip().split(',')

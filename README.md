@@ -47,15 +47,15 @@ Analysis tools for samples process using FLASH for mTB.
 	usage: find_folds.py [-h] depth_file sample_ID
 
 	positional arguments:
-	  depth_file  depth file, sample.depth
-	  sample_ID   file naming
+	 	depth_file  depth file, sample.depth
+	  	sample_ID   file naming
 
 	optional arguments:
   		-h, --help  show this help message and exit
 
  	Outputs:
- 	1)'sample_ID_gene_fold.csv' for each gene there are all the fold enrichemnt values between the first and last probe targetting that region
- 	2)'sample_ID_gene_fold_stats' per gene stats about the enrichent including max and min fold. Also the number of points with less than one fold enrichment, 1-5 fold enrichment and > 5 fold enrichment
+ 		1)'sample_ID_gene_fold.csv' for each gene there are all the fold enrichemnt values between the first and last probe targetting that region
+ 		2)'sample_ID_gene_fold_stats' per gene stats about the enrichent including max and min fold. Also the number of points with less than one fold enrichment, 1-5 fold enrichment and > 5 fold enrichment
 
 4)get_mykrobe.py
 
