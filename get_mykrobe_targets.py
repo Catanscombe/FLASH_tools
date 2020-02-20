@@ -194,27 +194,29 @@ def mykrobe_positions (gene_dic, mykrobe_gene):
 	return mykrobe_genome_pos
 		
 def mykrobe_fold (mykrobe_genome_pos , args):
-	
-	with open('%s' %  (args.depth_file_fold) , 'rb' ) as f:
-		reader = csv.reader(f)
-		input_list = list(reader)
+	with open ('%s_mykrobe_fold.csv' % (args.sample_ID) , 'a') as of:
+		with open('%s' %  (args.depth_file_fold) , 'rb' ) as f:
+			reader = csv.reader(f)
+			input_list = list(reader)
 
-		
-		fold_list = []
-		for sublist in input_list:
-			for val in sublist:
-				fold_list.append(val)
-		print len(fold_list)
-
-
+			
+			fold_list = []
+			for sublist in input_list:
+				for val in sublist:
+					fold_list.append(val)
+	#		print len(fold_list)
 
 
 
-	for gene in mykrobe_genome_pos:
-		snps = mykrobe_genome_pos[gene]
-		for snp in snps:
-			fold = fold_list[snp]
-			print gene, snp , fold
+
+
+		for gene in mykrobe_genome_pos:
+			snps = mykrobe_genome_pos[gene]
+			for snp in snps:
+				fold = fold_list[snp]
+				writer = csv.writer(of , delimiter = ',')
+				writer.writerow([gene, snp , fold])
+			
 
 
 
