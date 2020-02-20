@@ -163,9 +163,9 @@ def mykrobe_positions (gene_dic, mykrobe_gene):
 			end = entry[2]
 			reverse = entry[3]
 			if gene == ID:
-				print ID, start, end
+				#print ID, start, end
 				if reverse == 'c' :
-					print 'reverse'
+					#print 'reverse'
 					start = int(start)
 					end = int(end)
 					genome_pos_list = mykrobe_gene[gene]
@@ -175,7 +175,7 @@ def mykrobe_positions (gene_dic, mykrobe_gene):
 					
 
 				else:
-					print 'forward'
+					#print 'forward'
 					start = int(start)
 					end = int(end)
 					genome_pos_list = mykrobe_gene[gene]
