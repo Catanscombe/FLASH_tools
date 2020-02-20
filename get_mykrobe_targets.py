@@ -194,7 +194,7 @@ def mykrobe_positions (gene_dic, mykrobe_gene):
 	return mykrobe_genome_pos
 		
 def mykrobe_fold (mykrobe_genome_pos , args):
-	fold_list = ()
+	fold_list = list()
 	with open('%s' %  (args.depth_file_fold) , 'rb' ) as f:
 		reader = csv.reader(f)
 		for line_list in reader:
