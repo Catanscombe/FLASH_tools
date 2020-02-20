@@ -201,7 +201,11 @@ def mykrobe_fold (mykrobe_genome_pos , args):
 #		for line_list in reader:
 #			fold_list = fold_list.append(line_list)
 		print len(fold_list)
-
+		flat_list = []
+		for sublist in fold_list:
+			for val in sublist:
+				flat_list.append(val)
+		print len(flat_list)
 
 
 
