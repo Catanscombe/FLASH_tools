@@ -114,7 +114,31 @@ def fold_per_gene(args , fold_list , probe_pos):
 #		print gene , max_fold
 
 
+def probe_pair_depths (args , probe_pos , fold_list):
+	print 'gene' , 'probe_1' , 'probe_2' ,'low_fold' , 'high_fold' ,'<1_probe' , '1-5_probe' , '>5_probe' , 'probe_pair_len'
+	for gene in probe_pos:
+		#print probe_pos[gene]
+		probe_pos_list = probe_pos[gene]
+		sorted_pos = sorted(probe_pos_list)
+		#print sorted_pos
+		#list_len = len(sorted_pos)
+		#print gene , list_len
+		for i in range(0, len(sorted_pos) - 1):
+			probe_1 = sorted_pos[i]
+			probe_2 = sorted_pos[i + 1]
+			our_list = fold_list[probe_1:probe_2]
+			low_probe =min(our_list)
+			low_probe_pos = our_list.index(min(our_list))
+			high_probe = max(our_list)
+			high_probe_pos = our_list.index(max(our_list))
 
+
+			vlow_probe_fold =sum (i < 1 for i in our_list)
+			five_probe_fold =sum (i < 5 for i in our_list)
+			low_probe_fold = five_probe_fold - vlow_probe_fold
+			probe_len = len(our_list)
+			high_probe_fold = probe_len - five_probe_fold
+			print gene, probe_1 , probe_2 ,low_probe, high_probe , vlow_probe_fold, low_probe_fold , high_probe_fold , probe_len  
 
 
 
