@@ -56,6 +56,8 @@ Analysis tools for samples process using FLASH for mTB.
  	Outputs:
  		1)'sample_ID_gene_fold.csv' for each gene there are all the fold enrichemnt values between the first and last probe targetting that region
  		2)'sample_ID_gene_fold_stats' per gene stats about the enrichent including max and min fold. Also the number of points with less than one fold enrichment, 1-5 fold enrichment and > 5 fold enrichment
+ 		3)'sample_ID_probe_pairs.csv' for each probes pair it outputs the probe positions, minumum fold enrichment, maximum fold enrichements and the number of times there is <1, 1-5 and >5 fold enrichemnt. It also outputs the distance bwetween the probe pairs
+ 		
 
 4)get_mykrobe.py
 
