@@ -70,7 +70,7 @@ def assembly_whole_genome(args):
 
 def  get_target_tats(args):
 	
-	os.system ('samtools depth -aa -d 100000 %s_targets_S.bam > %s_targets.depth'% (args.sample_ID , args.sample_ID))
+	os.system ('samtools depth  -d 100000 %s_targets_S.bam > %s_targets.depth'% (args.sample_ID , args.sample_ID))
 	with open ('%s_targets.csv' % (args.sample_ID) , 'a') as f:
 		FastaFile = open('%s/%s' % (script_dir , targets) , 'rU')
 		
