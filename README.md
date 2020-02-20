@@ -44,19 +44,20 @@ Analysis tools for samples process using FLASH for mTB.
 
 	This script describes the fold increase across the whole genome and for all genes in enriched
 
-	usage: find_folds.py [-h] depth_file sample_ID
+		usage: find_folds.py [-h] depth_file all_but sample_ID
 
-	positional arguments:
-	 	depth_file  depth file, sample.depth
-	  	sample_ID   file naming
+		positional arguments:
+		depth_file  depth file, sample.depth
+		all_but     csv file contianing the all_but_av
+		sample_ID   file naming
 
-	optional arguments:
-  		-h, --help  show this help message and exit
+		optional arguments:
+		-h, --help  show this help message and exit
 
- 	Outputs:
- 		1)'sample_ID_gene_fold.csv' for each gene there are all the fold enrichemnt values between the first and last probe targetting that region
- 		2)'sample_ID_gene_fold_stats' per gene stats about the enrichent including max and min fold. Also the number of points with less than one fold enrichment, 1-5 fold enrichment and > 5 fold enrichment
- 		3)'sample_ID_probe_pairs.csv' for each probes pair it outputs the probe positions, minumum fold enrichment, maximum fold enrichements and the number of times there is <1, 1-5 and >5 fold enrichemnt. It also outputs the distance bwetween the probe pairs
+	Outputs:
+		1)'sample_ID_gene_fold.csv' for each gene there are all the fold enrichemnt values between the first and last probe targetting that region
+		2)'sample_ID_gene_fold_stats' per gene stats about the enrichent including max and min fold. Also the number of points with less than one fold enrichment, 1-5 fold enrichment and > 5 fold enrichment
+		3)'sample_ID_probe_pairs.csv' for each probes pair it outputs the probe positions, minumum fold enrichment, maximum fold enrichements and the number of times there is <1, 1-5 and >5 fold enrichemnt. It also outputs the distance bwetween the probe pairs
  		
 
 4)get_mykrobe.py
