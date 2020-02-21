@@ -102,12 +102,12 @@ def fold_per_gene(args , fold_list , probe_pos):
 				_1_5 = less_5 - less_1
 				greater_5 = length - _1_5
 				writer = csv.writer(f2 , delimiter = ',')
-				writer.writerow([ gene , length , min_fold , max_fold , less_1 , _1_5 , greater_5] ) 
+				writer.writerow([ gene , length , min_fold , max_fold , less_1 , _1_5 , greater_5 , first_probe , last_probe] ) 
 #
 		
 		for line in fileinput.input(files = ['%s_gene_fold_stats.csv' % (args.sample_ID)], inplace = True ):
 			if fileinput.isfirstline():
-				print 'gene, length, min_fold , max_fold , <1 , 1-5 , >5'
+				print 'gene, length, min_fold , max_fold , <1 , 1-5 , >5 , first_probe , last_probe'
 			print line
 
 
