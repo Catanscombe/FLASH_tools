@@ -64,7 +64,7 @@ Analysis tools for samples process using FLASH for Mtb.
 	3)'sample_ID_probe_pairs.csv' for each probes pair it outputs the probe positions, minumum fold enrichment, maximum fold enrichements and the number of times there is <1, 1-5 and >5 fold enrichemnt. It also outputs the distance bwetween the probe pairs
 
 
-4)get_mykrobe.py
+4) get_mykrobe.py
 
     This script finds the position of the SNPs used by Mykrobe (https://www.mykrobe.com) for mTB resistance testing
 
