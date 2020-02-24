@@ -37,9 +37,10 @@ Analysis tools for samples process using FLASH for mTB.
 	 		 -h, --help  show this help message and exit
 
 	 outputs: 
-	 	1) 'sample_ID_probe_positions.csv' a file containing the genome points of the probes
-	 	(gene, probe_name , probe_Sequence . genome_point , direction_of_probe)
-	 	2) 'sample_ID_all_but.csv' contains average depth of the enriched and not enriched genome regions
+
+		1) 'sample_ID_probe_positions.csv' a file containing the genome points of the probes
+		(gene, probe_name , probe_Sequence . genome_point , direction_of_probe)
+		2) 'sample_ID_all_but.csv' contains average depth of the enriched and not enriched genome regions
 
 
 3) find_folds.py
@@ -78,4 +79,4 @@ Analysis tools for samples process using FLASH for mTB.
 		-h, --help       show this help message and exit
 
 	Outputs:
-		'sample_ID_mykrobe_fold.csv' for each gene it outputs the genome position of the SNP used by Mykrobe and the depth at that point in the genome
+		1)'sample_ID_mykrobe_fold.csv' for each gene it outputs the genome position of the SNP used by Mykrobe and the depth at that point in the genome
