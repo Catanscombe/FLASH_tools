@@ -1,7 +1,7 @@
 # FLASH_tools
-Analysis tools for samples process using FLASH for mTB. 
+Analysis tools for samples process using FLASH for Mtb.
 
-1)mapping.py
+1) mapping.py
 
 	This script will reference map the reads (using bwa mem) to NC_000962.3 Mycobacterium tuberculosis H37Rv, complete genome. It will also map the reads to the 50 genes which are targetted for enrichment
 
@@ -15,13 +15,13 @@ Analysis tools for samples process using FLASH for mTB.
 		optional arguments:
 	  		-h, --help  show this help message and exit
 
-Outputs: 
+    Outputs:
 
-	1)'sample_ID_assembly_stsats.csv' which contains read and mapping information.
-	2)'sample_ID_targets.csv' contains mapping results for each of the 50 targets
-	3)'sample_ID_S.bam' a sorted bam file from the whole genome mapping
-	4)'sample_ID_targets_S.bam' sorted bam file from reference mapping ot target genes
-	5)'sample_ID.depth' a file containing the depth at all points in the whole genome
+	1)`sample_ID_assembly_stsats.csv` which contains read and mapping information.
+	2)`sample_ID_targets.csv` contains mapping results for each of the 50 targets
+	3)`sample_ID_S.bam` a sorted bam file from the whole genome mapping
+	4)`sample_ID_targets_S.bam` sorted bam file from reference mapping ot target genes
+	5)`sample_ID.depth` a file containing the depth at all points in the whole genome
 
 2) all_but.py
 
@@ -36,11 +36,11 @@ Outputs:
 		optional arguments:
 	 		 -h, --help  show this help message and exit
 
-outputs: 
+    Outputs:
 
-	1) 'sample_ID_probe_positions.csv' a file containing the genome points of the probes
+	1) `sample_ID_probe_positions.csv` a file containing the genome points of the probes
 	(gene, probe_name , probe_Sequence . genome_point , direction_of_probe)
-	2) '<sample_ID_all_but class="cs"></sample_ID_all_but>v' contains average depth of the enriched and not enriched genome regions
+	2) `sample_ID_all_but` contains average depth of the enriched and not enriched genome regions
 
 
 3) find_folds.py
@@ -57,12 +57,12 @@ outputs:
 		optional arguments:
 		-h, --help  show this help message and exit
 
-Outputs:
+    Outputs:
 
 	1)'sample_ID_gene_fold.csv' for each gene there are all the fold enrichemnt values between the first and last probe targetting that region
 	2)'sample_ID_gene_fold_stats' per gene stats about the enrichent including max and min fold. Also the number of points with less than one fold enrichment, 1-5 fold enrichment and > 5 fold enrichment
 	3)'sample_ID_probe_pairs.csv' for each probes pair it outputs the probe positions, minumum fold enrichment, maximum fold enrichements and the number of times there is <1, 1-5 and >5 fold enrichemnt. It also outputs the distance bwetween the probe pairs
- 		
+
 
 4)get_mykrobe.py
 
