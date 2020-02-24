@@ -3,7 +3,7 @@ Analysis tools for samples process using FLASH for mTB.
 
 1)mapping.py
 
-    This script will reference map the reads (using bwa mem) to NC_000962.3 Mycobacterium tuberculosis H37Rv, complete genome. It will also map the reads to the 50 genes which are targetted for enrichment
+	This script will reference map the reads (using bwa mem) to NC_000962.3 Mycobacterium tuberculosis H37Rv, complete genome. It will also map the reads to the 50 genes which are targetted for enrichment
 
         usage: mapping.py [-h] in_file_R1 in_file_R2 sample_ID
 
