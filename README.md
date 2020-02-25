@@ -61,7 +61,7 @@ Analysis tools for samples process using FLASH for Mtb.
 		sample_ID   file naming
 
 		optional arguments:
-		-h, --help  show this help message and exit
+			-h, --help  show this help message and exit
 
     Outputs:
 
