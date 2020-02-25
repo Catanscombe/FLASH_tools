@@ -1,10 +1,10 @@
 # FLASH_tools
 Analysis tools for samples process using FLASH for Mtb.
 
-1) mapping.py
-2) all_but.py
-3) find_folds.py
-4) get_mykrobe.py
+1. mapping.py
+2. all_but.py
+3. find_folds.py
+4. get_mykrobe.py
 
 
 1) mapping.py
